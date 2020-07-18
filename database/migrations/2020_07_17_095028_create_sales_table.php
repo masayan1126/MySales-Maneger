@@ -14,11 +14,12 @@ class CreateSalesTable extends Migration
     public function up()
     {
         Schema::create('sales', function (Blueprint $table) {
-            // $table->id('product_id')->nullable();
+            $table->bigIncrements('id');
             $table->string('product_color')->nullable();
             $table->string('sales_date')->nullable();
             $table->integer('sales_amount')->nullable();
             $table->string('exhibition_time')->nullable();
+            $table->timestamps();
         });
     }
 
