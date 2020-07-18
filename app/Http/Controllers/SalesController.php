@@ -16,10 +16,7 @@ class SalesController extends Controller
     }
 
     public function store(Request $request){
-      // $view = view('sale');
       $sale = new Sale();
-      // $sale->product_color = 'ネイビー';
-      // $sale->product_id = 1;
       $sale->product_color = $request->color;
       $sale->sales_date = "{$request->year}/{$request->month}/{$request->day}";
       $sale->sales_amount = $request->amount;

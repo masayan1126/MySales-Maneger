@@ -10,17 +10,6 @@
   @include('parts.menu')
   <div class="container-fluid pt-4">
     <h2>売上一覧</h2>
-    <!-- <table>
-    @foreach($all_sales as $sales)
-    <tr>
-        <td>商品ID:{{$sales->product_id}}</td>
-        <td>商品カラー{{$sales->product_color}}</td>
-        <td>売上日{{$sales->sales_date}}</td>
-        <td>売上利益{{$sales->sales_amount}}円</td>
-        <td>出品時間{{$sales->exhibition_time}}</td>
-    </tr>
-    @endforeach
-    </table> -->
 <table class="table">
   <thead class="thead-light">
     <tr>
