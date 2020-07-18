@@ -25,9 +25,6 @@ class SalesController extends Controller
       $sale->sales_amount = $request->amount;
       $sale->exhibition_time = $request->exhibitionTime;
       $sale->save();
-      // $all_sales = DB::table('sales')->get();
-      // $view->all_sales = $all_sales;
-      // return $view;
     }
 
     public function index(){

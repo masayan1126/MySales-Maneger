@@ -19,7 +19,6 @@ class CreateSalesTable extends Migration
             $table->string('sales_date')->nullable();
             $table->integer('sales_amount')->nullable();
             $table->string('exhibition_time')->nullable();
-            $table->timestamps();
         });
     }
 
