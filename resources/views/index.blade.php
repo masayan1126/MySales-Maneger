@@ -34,7 +34,7 @@
   <tbody>
   @foreach($all_sales as $sales)
     <tr>
-      <td scope="row">{{$sales->product_id}}</td>
+      <td scope="row">{{$sales->id}}</td>
       <td scope="row">{{$sales->product_color}}</td>
       <td scope="row">{{$sales->sales_date}}</td>
       <td scope="row">{{$sales->sales_amount}}</td>
