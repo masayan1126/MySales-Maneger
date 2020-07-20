@@ -14,10 +14,12 @@
   <thead class="thead-light">
     <tr>
       <th scope="col">商品ID</th>
+      <th scope="col">商品番号</th>
       <th scope="col">商品カラー</th>
+      <th scope="col">出品日</th>
+      <th scope="col">出品時間区分</th>
       <th scope="col">売上日</th>
       <th scope="col">売上利益</th>
-      <th scope="col">出品時間</th>
     </tr>
   </thead>
   <tbody>
@@ -26,10 +28,10 @@
       <td scope="row">{{$sales->id}}</td>
       <td scope="row">{{$sales->product_number}}</td>
       <td scope="row">{{$sales->product_color}}</td>
-      <td scope="row">{{$sales->sales_date}}</td>
-      <td scope="row">{{$sales->sales_amount}}</td>
       <td scope="row">{{$sales->exhibition_date}}</td>
       <td scope="row">{{$sales->exhibition_timezone}}</td>
+      <td scope="row">{{$sales->sales_date}}</td>
+      <td scope="row">{{$sales->sales_amount}}</td>
     </tr>
     @endforeach
   </tbody>
