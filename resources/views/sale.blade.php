@@ -82,7 +82,7 @@ for($i = 1; $i<=31; $i++):?>
   </div>
   </div>
   <div class="form-group">
-  <label for="exhibition-year-selection">売上日</label>
+  <label for="exhibition-year-selection">出品日</label>
   <div class="row">
   <div class="col-3">
   <select name="exhibitionYear" id="exhibition-year-selection" class="form-control">
