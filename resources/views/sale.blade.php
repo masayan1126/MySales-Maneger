@@ -38,6 +38,48 @@
     </select>
   </div>
   <div class="form-group">
+  <label for="exhibition-year-selection">出品日</label>
+  <div class="row">
+  <div class="col-3">
+  <select name="exhibitionYear" id="exhibition-year-selection" class="form-control">
+  
+<?php
+$now = date("Y");
+for($i = 1950; $i<= $now; $i++):?>
+<option value="<?php echo $i;?>"><?php echo $i;?></option>
+<?php endfor;?>
+</select>
+年
+</div>
+<div class="col-3">
+<select name="exhibitionMonth" class="form-control">
+<?php
+for($i = 1; $i<=12; $i++):?>
+<option value="<?php echo $i;?>"><?php echo $i;?></option>
+<?php endfor;?>
+</select>
+月
+</div>
+<div class="col-3">
+<select name="exhibitionDay" class="form-control">
+<?php 
+for($i = 1; $i<=31; $i++):?>
+<option value="<?php echo $i;?>"><?php echo $i;?></option>
+<?php endfor;?>
+</select>日
+        </div>
+        </div> 
+        </div>
+  <div class="form-group col-4 p-0">
+    <label for="exhibition-timezone">出品時間区分</label>
+    <select name="exhibitionTimeZone" class="form-control" id="exhibition-timezone">
+      <option>朝(6:00〜10:00)</option>
+      <option>昼(10:00〜14:00)</option>
+      <option>夕方(14:00〜17:00)</option>
+      <option>夜(17:00〜21:00)</option>
+    </select>
+  </div>
+  <div class="form-group">
   <label for="sales-year-selection">売上日</label>
   <div class="row">
   <div class="col-3">
@@ -81,48 +123,7 @@ for($i = 1; $i<=31; $i++):?>
   </div>
   </div>
   </div>
-  <div class="form-group">
-  <label for="exhibition-year-selection">出品日</label>
-  <div class="row">
-  <div class="col-3">
-  <select name="exhibitionYear" id="exhibition-year-selection" class="form-control">
-  
-<?php
-$now = date("Y");
-for($i = 1950; $i<= $now; $i++):?>
-<option value="<?php echo $i;?>"><?php echo $i;?></option>
-<?php endfor;?>
-</select>
-年
-</div>
-<div class="col-3">
-<select name="exhibitionMonth" class="form-control">
-<?php
-for($i = 1; $i<=12; $i++):?>
-<option value="<?php echo $i;?>"><?php echo $i;?></option>
-<?php endfor;?>
-</select>
-月
-</div>
-<div class="col-3">
-<select name="exhibitionDay" class="form-control">
-<?php 
-for($i = 1; $i<=31; $i++):?>
-<option value="<?php echo $i;?>"><?php echo $i;?></option>
-<?php endfor;?>
-</select>日
-        </div>
-        </div> 
-        </div>
-  <div class="form-group col-4 p-0">
-    <label for="exhibition-timezone">出品時間区分</label>
-    <select name="exhibitionTimeZone" class="form-control" id="exhibition-timezone">
-      <option>朝(6:00〜10:00)</option>
-      <option>昼(10:00〜14:00)</option>
-      <option>夕方(14:00〜17:00)</option>
-      <option>夜(17:00〜21:00)</option>
-    </select>
-  </div>
+
     <button type="submit" class="btn btn-primary" name="add">追加</button>
   </form>
 
