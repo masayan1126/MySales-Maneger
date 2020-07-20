@@ -17,10 +17,12 @@ class SalesController extends Controller
 
     public function store(Request $request){
       $sale = new Sale();
-      $sale->product_color = $request->color;
-      $sale->sales_date = "{$request->year}/{$request->month}/{$request->day}";
-      $sale->sales_amount = $request->amount;
-      $sale->exhibition_time = $request->exhibitionTime;
+      $sale->product_number = $request->productNumber;
+      $sale->product_color = $request->productColor;
+      $sale->sales_date = "{$request->salesYear}/{$request->salesMonth}/{$request->salesDay}";
+      $sale->sales_amount = $request->salesAmount;
+      $sale->exhibition_date = "{$request->exhibitionYear}/{$request->exhibitionMonth}/{$request->exhibitionDay}";
+      $sale->exhibition_timezone = $request->exhibitionTimeZone;
       $sale->save();
     }
 

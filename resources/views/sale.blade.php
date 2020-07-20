@@ -14,20 +14,34 @@
   <form action="/add" method="POST" class="form-horizontal">
   {{ csrf_field() }}
   <div class="form-group">
-    <label for="colorSelection">商品カラー</label>
-    <select name="color" class="form-control" id="colorSelection">
+    <label for="product-number-Selection">商品カラー</label>
+    <select name="productNumber" class="form-control" id="product-number-Selection">
+      <option>【C001】</option>
+      <option>【C002】</option>
+      <option>【C003】</option>
+      <option>【C004】</option>
+      <option>【C005】</option>
+      <option>【C006】</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="product-color-selection">商品カラー</label>
+    <select name="productColor" class="form-control" id="product-color-selection">
       <option>ブラック</option>
       <option>ホワイト</option>
       <option>ネイビー</option>
       <option>レッド</option>
       <option>グリーン</option>
+      <option>グリーン</option>
+      <option>グリーン</option>
+      <option>グリーン</option>
     </select>
   </div>
   <div class="form-group">
-  <label for="year">売上日</label>
+  <label for="sales-year-selection">売上日</label>
   <div class="row">
   <div class="col-3">
-  <select name="year" class="form-control">
+  <select name="salesYear" id="sales-year-selection" class="form-control">
   
 <?php
 $now = date("Y");
@@ -38,7 +52,7 @@ for($i = 1950; $i<= $now; $i++):?>
 年
 </div>
 <div class="col-3">
-<select name="month" class="form-control">
+<select name="salesMonth" class="form-control">
 <?php
 for($i = 1; $i<=12; $i++):?>
 <option value="<?php echo $i;?>"><?php echo $i;?></option>
@@ -47,7 +61,7 @@ for($i = 1; $i<=12; $i++):?>
 月
 </div>
 <div class="col-3">
-<select name="day" class="form-control">
+<select name="salesDay" class="form-control">
 <?php 
 for($i = 1; $i<=31; $i++):?>
 <option value="<?php echo $i;?>"><?php echo $i;?></option>
@@ -57,23 +71,56 @@ for($i = 1; $i<=31; $i++):?>
         </div> 
         </div>
 <div class="form-group">
-<label for="amount">売上利益</label>
+<label for="sales-amount">売上利益</label>
 <div class="row">
 <div class="col-6">
-    <input type="text" class="form-control" name="amount">
+    <input type="text" class="form-control" id="sales-amount" name="salesAmount">
   </div>
 <div class="col-6">
    <p>円</p>
   </div>
   </div>
   </div>
+  <div class="form-group">
+  <label for="exhibition-year-selection">売上日</label>
+  <div class="row">
+  <div class="col-3">
+  <select name="exhibitionYear" id="exhibition-year-selection" class="form-control">
+  
+<?php
+$now = date("Y");
+for($i = 1950; $i<= $now; $i++):?>
+<option value="<?php echo $i;?>"><?php echo $i;?></option>
+<?php endfor;?>
+</select>
+年
+</div>
+<div class="col-3">
+<select name="exhibitionMonth" class="form-control">
+<?php
+for($i = 1; $i<=12; $i++):?>
+<option value="<?php echo $i;?>"><?php echo $i;?></option>
+<?php endfor;?>
+</select>
+月
+</div>
+<div class="col-3">
+<select name="exhibitionDay" class="form-control">
+<?php 
+for($i = 1; $i<=31; $i++):?>
+<option value="<?php echo $i;?>"><?php echo $i;?></option>
+<?php endfor;?>
+</select>日
+        </div>
+        </div> 
+        </div>
   <div class="form-group col-4 p-0">
-    <label for="exhibitionTime">出品時間区分</label>
-    <select name="exhibitionTime" class="form-control" id="exhibitionTime">
-      <option>朝</option>
-      <option>昼</option>
-      <option>夕方</option>
-      <option>夜</option>
+    <label for="exhibition-timezone">出品時間区分</label>
+    <select name="exhibitionTimeZone" class="form-control" id="exhibition-timezone">
+      <option>朝(6:00〜10:00)</option>
+      <option>昼(10:00〜14:00)</option>
+      <option>夕方(14:00〜17:00)</option>
+      <option>夜(17:00〜21:00)</option>
     </select>
   </div>
     <button type="submit" class="btn btn-primary" name="add">追加</button>

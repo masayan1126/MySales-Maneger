@@ -24,10 +24,12 @@
   @foreach($all_sales as $sales)
     <tr>
       <td scope="row">{{$sales->id}}</td>
+      <td scope="row">{{$sales->product_number}}</td>
       <td scope="row">{{$sales->product_color}}</td>
       <td scope="row">{{$sales->sales_date}}</td>
       <td scope="row">{{$sales->sales_amount}}</td>
-      <td scope="row">{{$sales->exhibition_time}}</td>
+      <td scope="row">{{$sales->exhibition_date}}</td>
+      <td scope="row">{{$sales->exhibition_timezone}}</td>
     </tr>
     @endforeach
   </tbody>
