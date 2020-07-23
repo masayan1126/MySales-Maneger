@@ -10,75 +10,9 @@
 <body>
 @include('parts.menu')
 <div class="container-fluid pt-4">
-<h2>売上データの入力</h2>
   <form action="/add" method="POST" class="form-horizontal">
   {{ csrf_field() }}
-  <div class="form-group">
-    <label for="product-number-Selection">商品カラー</label>
-    <select name="productNumber" class="form-control" id="product-number-Selection">
-      <option>【C001】</option>
-      <option>【C002】</option>
-      <option>【C003】</option>
-      <option>【C004】</option>
-      <option>【C005】</option>
-      <option>【C006】</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="product-color-selection">商品カラー</label>
-    <select name="productColor" class="form-control" id="product-color-selection">
-      <option>ブラック</option>
-      <option>ホワイト</option>
-      <option>ネイビー</option>
-      <option>レッド</option>
-      <option>グリーン</option>
-      <option>グリーン</option>
-      <option>グリーン</option>
-      <option>グリーン</option>
-    </select>
-  </div>
-  <div class="form-group">
-  <label for="exhibition-year-selection">出品日</label>
-  <div class="row">
-  <div class="col-3">
-  <select name="exhibitionYear" id="exhibition-year-selection" class="form-control">
-  
-<?php
-$now = date("Y");
-for($i = 1950; $i<= $now; $i++):?>
-<option value="<?php echo $i;?>"><?php echo $i;?></option>
-<?php endfor;?>
-</select>
-年
-</div>
-<div class="col-3">
-<select name="exhibitionMonth" class="form-control">
-<?php
-for($i = 1; $i<=12; $i++):?>
-<option value="<?php echo $i;?>"><?php echo $i;?></option>
-<?php endfor;?>
-</select>
-月
-</div>
-<div class="col-3">
-<select name="exhibitionDay" class="form-control">
-<?php 
-for($i = 1; $i<=31; $i++):?>
-<option value="<?php echo $i;?>"><?php echo $i;?></option>
-<?php endfor;?>
-</select>日
-        </div>
-        </div> 
-        </div>
-  <div class="form-group col-4 p-0">
-    <label for="exhibition-timezone">出品時間区分</label>
-    <select name="exhibitionTimeZone" class="form-control" id="exhibition-timezone">
-      <option>朝(6:00〜10:00)</option>
-      <option>昼(10:00〜14:00)</option>
-      <option>夕方(14:00〜17:00)</option>
-      <option>夜(17:00〜21:00)</option>
-    </select>
-  </div>
+  @include('parts.select')
   <div class="form-group">
   <label for="sales-year-selection">売上日</label>
   <div class="row">
@@ -124,7 +58,7 @@ for($i = 1; $i<=31; $i++):?>
   </div>
   </div>
 
-    <button type="submit" class="btn btn-primary" name="add">追加</button>
+    <button type="submit" class="btn btn-warning" name="add">追加</button>
   </form>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

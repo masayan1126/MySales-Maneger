@@ -17,16 +17,13 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form action="/result" method="POST" class="form-horizontal">
-          <div class="modal-body">
-            {{ csrf_field() }}
-            @include('parts.select')
-            <div class="modal-footer">
-            <!-- data-dismiss="modal" -->
-              <button type="submit" class="btn btn-primary " name="filter">Save changes</button>
-            </div>
-          </div>
-        </form>
+        <div class="modal-body">
+        @include('parts.select')
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+        </div>
       </div>
     </div>
   </div>

@@ -21,14 +21,34 @@ class SalesController extends Controller
       $sale->product_color = $request->productColor;
       $sale->sales_date = "{$request->salesYear}/{$request->salesMonth}/{$request->salesDay}";
       $sale->sales_amount = $request->salesAmount;
-      $sale->exhibition_date = "{$request->exhibitionYear}/{$request->exhibitionMonth}/{$request->exhibitionDay}";
       $sale->exhibition_timezone = $request->exhibitionTimeZone;
       $sale->save();
+      $view = view('complete');
+      return $view;
     }
 
     public function index(){
       $view = view('index');
       $all_sales = DB::table('sales')->get();
+      $view->all_sales = $all_sales;
+      return $view;
+    }
+    
+    public function complete(){
+
+    }
+
+    public function filter(Request $request){
+      $view = view('result');
+      // $sale = new Sale();
+      $all_sales = DB::table('sales')->where('product_color', '=' , "{$request->productColor}")
+      ->get();
+      // ->get();
+      // $sale->product_number = $request->productNumber;
+      // $sale->product_color = $request->productColor;
+      // $sale->sales_date = "{$request->salesYear}/{$request->salesMonth}/{$request->salesDay}";
+      // $sale->sales_amount = $request->salesAmount;
+      // $sale->exhibition_timezone = $request->exhibitionTimeZone;
       $view->all_sales = $all_sales;
       return $view;
     }
