@@ -4,7 +4,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">Example Component</div>
-{{test}}
+@{{test}}
                     <div class="card-body">
                         I'm an example component.
                     </div>
@@ -15,7 +15,10 @@
 </template>
 
 <script>
+import { Bar } from 'vue-chartjs'   
+
     export default {
+        extends: Bar,
         name: "example-component",
         date(){
           return{
@@ -23,6 +26,7 @@
           }
         },
         mounted() {
+            this.renderChart(data, options)
             console.log('Component mounted.')
         }
     }
