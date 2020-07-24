@@ -30,6 +30,7 @@
         }],
     };
     
+    <?php echo $all_sales; ?>
     let arr = <?php echo $all_sales; ?>
     console.log(arr);
 
