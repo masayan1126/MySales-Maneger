@@ -5,7 +5,7 @@ window.Vue = require('vue');
 // import ExampleComponent from './components/ExampleComponent.vue'
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-Vue.component('chart', require('./components/Chart.vue'));
+// Vue.component('chart', require('./components/Chart.vue'));
 // Vue.component('header-component', require('./components/HeaderComponent.vue').default);
 
 const app = new Vue({
