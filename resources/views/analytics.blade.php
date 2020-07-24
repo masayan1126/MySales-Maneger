@@ -29,8 +29,9 @@
             data: [111, 222, 333, 444, 555]
         }],
     };
-
-    let arr = {{$sales_amount}};
+    
+    let arr = <?php echo json_encode($sales_amount); ?>;
+    console.log(arr);
 
     arr.forEach(element => {
       data.datasets.data.push(element);

@@ -38,10 +38,10 @@ class SalesController extends Controller
       $view = view('analytics');
       $all_sales = DB::table('sales')->get();
       $view->sales_amount = $all_sales->sales_amount;
-      return redirect(route('analytics',[
-        'sales_amount' => $sales_amount,
-      ]));
-      // return $view;
+      // return redirect(route('analytics',[
+      //   'sales_amount' => $sales_amount,
+      // ]));
+      return $view;
     }
 
     public function filter(Request $request){
