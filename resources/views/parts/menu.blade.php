@@ -18,7 +18,7 @@
       <a class="nav-item nav-link" href="/top">トップ画面 <span class="sr-only">(current)</span></a>
       <a class="nav-item nav-link" href="/index">売上一覧</a>
       <a class="nav-item nav-link" href="/form">売上データの入力</a>
-      <a class="nav-item nav-link" href="#">データ分析</a>
+      <a class="nav-item nav-link" href="/analytics">データ分析</a>
     </div>
   </div>
 </nav>

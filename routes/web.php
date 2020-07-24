@@ -21,3 +21,4 @@ Route::get('/complete', 'SalesController@complete');
 Route::post('/result', 'SalesController@filter');
 Route::post('/add', 'SalesController@store');
 Route::get('/top','SalesController@top');
+Route::get('/analytics','SalesController@drawChart');

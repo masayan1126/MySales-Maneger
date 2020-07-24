@@ -34,8 +34,11 @@ class SalesController extends Controller
       return $view;
     }
     
-    public function complete(){
-
+    public function drawChart(){
+      $view = view('analytics');
+      $all_sales = DB::table('sales')->get();
+      $view->all_sales = $all_sales;
+      return $view;
     }
 
     public function filter(Request $request){
