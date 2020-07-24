@@ -30,7 +30,7 @@
         }],
     };
     
-    let arr = <?php echo json_encode($all_sales); ?>;
+    let arr = <?php echo $all_sales; ?>
     console.log(arr);
 
     arr.forEach(element => {
