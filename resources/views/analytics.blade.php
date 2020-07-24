@@ -36,8 +36,7 @@
       array_push($arr,$sales);
     endforeach; ?>
 
-    <?php echo $arr; ?>
-    let arr = <?php echo $all_sales; ?>
+    let arr = <?php echo $arr; ?>
     console.log(arr);
 
     arr.forEach(element => {
