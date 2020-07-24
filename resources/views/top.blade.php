@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href="{{ mix('css/app.css') }}" rel="stylesheet" type="text/css">
     <!-- ChartJS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script> -->
 </head>
 <body>
 @include('parts.menu')
@@ -24,23 +24,25 @@
   <!-- <script src="js/app.js"></script> -->
   <script src="{{ mix('js/app.js') }}"></script>
 <script>
-//     var type = 'line';
-//     var data = {
-//         labels: ['2018-01', '2018-02', '2018-03', '2018-04', '2018-04'],
-//         datasets: [{
-//             label: 'type A',
-//             data: [111, 222, 333, 444, 555]
-//         }]
-//     };
+var type = 'line';
+var data = {
+    labels: ['2018-01', '2018-02', '2018-03', '2018-04', '2018-04'],
+    datasets: [{
+        label: 'type A',
+        data: [111, 222, 333, 444, 555]
+    }, {
+        label: 'type B',
+        data: [555, 444, 333, 222, 111]
+    }]
+};
 
-//     var options;
-//     var ctx = $('#chart')[0].getContext('2d');
-//     var myChart = new Chart(ctx, {
-//         type: type,
-//         data: data,
-//         options: options
-//     });
-// })
+var options;
+var ctx = $('#chart')[0].getContext('2d');
+var myChart = new Chart(ctx, {
+    type: type,
+    data: data,
+    options: options
+});
 </script>
 
 </body>
