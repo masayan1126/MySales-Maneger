@@ -40,7 +40,10 @@
         }],
     };
 
-    data.datasets.data.push(<?php $sales->sales_amount; ?>);
+    const arr = <?php $sales->sales_amount; ?>
+    arr.forEach(element => {
+      data.datasets.data.push(element);
+    });
     console.log(data.datasets.data);
 
     var options;
