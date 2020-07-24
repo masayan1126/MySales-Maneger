@@ -5,6 +5,7 @@
                 <div class="card">
                     <div class="card-header">Example Component</div>
 @{{test}}
+<Bar>
                     <div class="card-body">
                         I'm an example component.
                     </div>
