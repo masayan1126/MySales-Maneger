@@ -1,5 +1,5 @@
 require('./bootstrap');
-require('./chart');
+// require('./chart');
 window.Vue = require('vue');
 // import Vue from 'vue'
 // import ExampleComponent from './components/ExampleComponent.vue'
