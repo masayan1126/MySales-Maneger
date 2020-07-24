@@ -15,3 +15,6 @@ export default {
   name: "example-component",
 }
 </script>
+
+<style scoped lang="scss">
+</style>
