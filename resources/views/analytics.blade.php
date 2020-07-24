@@ -30,8 +30,8 @@
         }],
     };
 
-    <?php echo $all_sales; ?>
-    let arr = <?php echo $all_sales; ?>
+    <?php echo $sales_amount; ?>
+    let arr = <?php echo $sales_amount; ?>
     console.log(arr);
 
     arr.forEach(element => {
