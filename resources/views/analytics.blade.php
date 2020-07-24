@@ -40,7 +40,7 @@
         }],
     };
 
-    data.push(<?php $sales->sales_amount; ?>);
+
     console.log(data);
 
     var options;
