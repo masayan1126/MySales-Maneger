@@ -40,7 +40,7 @@
         }],
     };
 
-    const arr = <?php $sales->sales_amount; ?>
+    const arr = <?php echo $sales->sales_amount; ?>
     arr.forEach(element => {
       data.datasets.data.push(element);
     });
