@@ -40,7 +40,6 @@
         }],
     };
 
-    let js_array = <?php echo $sales; ?>;
     data.push($sales->sales_amount);
     console.log(data);
 
