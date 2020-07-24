@@ -11,6 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
 </head>
 <body>
+  <?php echo $all_sales; ?>
   @include('parts.menu')
   <div class="container-fluid pt-4">
   <canvas id="chart"></canvas>
@@ -29,7 +30,7 @@
             data: [111, 222, 333, 444, 555]
         }],
     };
-    
+
     <?php echo $all_sales; ?>
     let arr = <?php echo $all_sales; ?>
     console.log(arr);
