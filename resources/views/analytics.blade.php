@@ -14,7 +14,7 @@
   @include('parts.menu')
   <div class="container-fluid pt-4">
   <canvas id="chart"></canvas>
-  @foreach($all_sales as $sales)
+  <!-- @foreach($all_sales as $sales)
     <tr>
       <td scope="row">{{$sales->id}}</td>
       <td scope="row">{{$sales->product_number}}</td>
@@ -23,7 +23,7 @@
       <td scope="row">{{$sales->sales_date}}</td>
       <td scope="row">{{$sales->sales_amount}}</td>
     </tr>
-    @endforeach
+    @endforeach -->
 </div>
 </div>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
