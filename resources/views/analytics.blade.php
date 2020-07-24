@@ -30,7 +30,13 @@
         }],
     };
 
-    <?php echo $all_sales; ?>
+
+    <?php $arr = array(); ?>
+    <?php foreach ($all_sales as $sales):
+      array_push($arr,$sales);
+    endforeach; ?>
+
+    <?php echo $arr; ?>
     let arr = <?php echo $all_sales; ?>
     console.log(arr);
 
