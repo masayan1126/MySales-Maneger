@@ -40,8 +40,8 @@
         }],
     };
 
-
-    console.log(data);
+    data.datasets.data.push(<?php $sales->sales_amount; ?>);
+    console.log(data.datasets.data);
 
     var options;
     var ctx = $('#chart')[0].getContext('2d');
