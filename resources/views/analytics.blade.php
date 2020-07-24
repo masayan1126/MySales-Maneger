@@ -40,7 +40,7 @@
         }],
     };
 
-    let arr = JSON.parse(<?php echo json_encode($sales->sales_amount); ?>
+    let arr = {{$sales_amount}};
 
     arr.forEach(element => {
       data.datasets.data.push(element);
