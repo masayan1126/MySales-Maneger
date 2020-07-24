@@ -41,7 +41,7 @@ class SalesController extends Controller
       // return redirect(route('analytics',[
       //   'sales_amount' => $sales_amount,
       // ]))
-      // return $view;
+      return $view;
     }
 
     public function filter(Request $request){
