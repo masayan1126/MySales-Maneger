@@ -45,6 +45,7 @@
       type: type,
       data: data,
       options: {
+        responsive: true,
         scales: {
           yAxes: [{
             ticks: {
