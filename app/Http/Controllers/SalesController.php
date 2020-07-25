@@ -37,7 +37,7 @@ class SalesController extends Controller
     public function drawChart(){
       $view = view('analytics');
       $all_sales = DB::table('sales')
-      ->where('id', '=' , 6)
+      // ->where('id', '=' , 6)
       ->get();
       $view->all_sales = $all_sales;
       // return redirect(route('analytics',[
