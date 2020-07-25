@@ -31,7 +31,7 @@ class SalesController extends Controller
       $all_sales = DB::table('sales')
       ->where('id', '=' , $request->check)
       ->first();
-      $result = $all_sales->delete();
+      $all_sales->delete();
       $view = view('index');
       return $view;
     }
