@@ -36,13 +36,16 @@
     arr.forEach(element => {
       data.datasets[0].data.push(element.sales_amount);
     });
-    console.log(newArr);
 
     var options;
     var ctx = $('#chart')[0].getContext('2d');
     var myChart = new Chart(ctx, {
         type: type,
         data: data,
+        borderColor: '#ffd700',
+        backgroundColor: [
+          'rgba(255, 255, 255, 1)',
+        ],
         options: options  
   });
 </script>
