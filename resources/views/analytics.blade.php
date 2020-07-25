@@ -30,15 +30,16 @@
         }],
     };
 
-    console.log(data.datasets.data);
-
-
+    
     let arr = <?php echo $all_sales; ?>
+    let newArr = [];
+    console.log(arr);
+    console.log(newArr);
 
     arr.forEach(element => {
-      data.datasets.data.push(element);
+      newArr.push(element);
     });
-    console.log(data.datasets.data);
+    console.log(newArr);
 
     var options;
     var ctx = $('#chart')[0].getContext('2d');
