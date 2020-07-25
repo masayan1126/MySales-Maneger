@@ -46,12 +46,14 @@
       data: data,
       options: {
         responsive: true,
+        maintainAspectRatio: false,
         scales: {
           yAxes: [{
             ticks: {
               beginAtZero: true,
               max: 2000,
               min: 800,
+              stepSize: 200,
               // stepSize: 2,
             },
           }]
