@@ -26,17 +26,14 @@
         labels: ['2018-01', '2018-02', '2018-03', '2018-04', '2018-04'],
         datasets: [{
             label: 'type A',
-            data: [111, 222, 333, 444, 555]
+            data: []
         }],
     };
 
 
-    <?php $arr = array(); ?>
-    <?php foreach ($all_sales as $sales):
-      array_push($arr,$sales);
-    endforeach; ?>
 
-    let arr = <?php echo $arr; ?>
+
+    let arr = <?php echo $all_sales; ?>
     console.log(arr);
 
     arr.forEach(element => {
