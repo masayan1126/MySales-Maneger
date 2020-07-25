@@ -30,7 +30,7 @@
         ],
         datasets: [{
             label: 'type A',
-            data: [26, 21],
+            data: [],
         }],
     };
     // console.log(data.datasets[0].data);
@@ -39,7 +39,7 @@
 
     arr.forEach(element => {
       data.datasets[0].data.push(element.sales_amount);
-      console.log(element.sales_amoun);
+      console.log(element.sales_amount);
     });
 
     var options;
