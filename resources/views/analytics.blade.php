@@ -23,7 +23,7 @@
   <script>
     var type = 'line';
     var data = {
-        labels: ['2018-01', '2018-02', '2018-03', '2018-04', '2018-04', '2018-01', '2018-02', '2018-03', '2018-04', '2018-04'],
+        labels: [],
         datasets: [{
             label: 'type A',
             data: [],
@@ -37,16 +37,26 @@
 
     arr.forEach(element => {
       data.datasets[0].data.push(element.sales_amount);
-      console.log(element.sales_amount);
+      data.labels.data.push(element.sales_date);
     });
 
-    var options;
     var ctx = $('#chart')[0].getContext('2d');
     var myChart = new Chart(ctx, {
-        type: type,
-        data: data,
-        options: options  
-  });
+      type: type,
+      data: data,
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true,
+              max: 2000,
+              min: 800,
+              // stepSize: 2,
+            },
+          }]
+        }
+      }
+    });
 </script>
 </body>
 </html>
