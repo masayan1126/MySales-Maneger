@@ -26,11 +26,12 @@
         labels: ['2018-01', '2018-02', '2018-03', '2018-04', '2018-04'],
         datasets: [{
             label: 'type A',
-            data: []
+            data: [26, 21],
         }],
     };
 
     
+    console.log(data.datasets.data);
     let arr = <?php echo $all_sales; ?>;
     let newArr = [];
     console.log(arr);
