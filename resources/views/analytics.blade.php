@@ -50,6 +50,8 @@
         scales: {
           xAxes: [{
             ticks: {
+              maxRotation: 45, // 自動的に回転する角度を固定
+              minRotation: 45,
             },
             scaleLabel: {
               display: true,
@@ -59,7 +61,7 @@
           yAxes: [{
             ticks: {
               beginAtZero: true,
-              max: 8000,
+              max: 6000,
               min: 800,
               stepSize: 1000,
               // stepSize: 2,
