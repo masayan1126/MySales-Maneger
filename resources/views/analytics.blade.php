@@ -31,7 +31,7 @@
     };
 
     
-    console.log(this.data.datasets.data);
+    console.log(data);
     let arr = <?php echo $all_sales; ?>;
     let newArr = [];
     console.log(arr);
