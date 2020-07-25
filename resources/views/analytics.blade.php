@@ -31,14 +31,14 @@
     };
 
     
-    console.log(data);
+    console.log(data.datasets[0].data);
     let arr = <?php echo $all_sales; ?>;
     let newArr = [];
     console.log(arr);
     console.log(newArr);
 
     arr.forEach(element => {
-      newArr.push(element);
+      newArr.push(element.sales_amount);
     });
     console.log(newArr);
 
