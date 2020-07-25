@@ -31,6 +31,8 @@ class SalesController extends Controller
       $all_sales = Sale::where('id', '=' , $request->check)
       ->delete();
       $view = view('index');
+      $all_sales = DB::table('sales')->get();
+      $view->all_sales = $all_sales;
       return $view;
     }
 
