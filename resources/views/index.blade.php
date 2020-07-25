@@ -38,7 +38,7 @@
     <table class="table table-sm">
       <thead class="thead-light">
         <tr>
-          <th scope="col" class="text-nowrap"><input type="checkbox[]">チェック</th>
+          <th scope="col" class="text-nowrap">チェック</th>
           <th scope="col" class="text-nowrap">#</th>
           <th scope="col" class="text-nowrap">商品番号
           <span class="pt-0 pb-0" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-filter"></i></span>
@@ -70,6 +70,7 @@
   </tbody>
 </table>
 </div>
+  <button type="submit" class="btn btn-warning" name="delete">削除</button>
 </form>
 </div>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
