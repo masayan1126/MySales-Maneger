@@ -37,7 +37,7 @@
 
     arr.forEach(element => {
       data.datasets[0].data.push(element.sales_amount);
-      data.labels.data.push(element.sales_date);
+      data.labels.push(element.sales_date);
     });
 
     var ctx = $('#chart')[0].getContext('2d');
