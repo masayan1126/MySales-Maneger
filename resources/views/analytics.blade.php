@@ -30,7 +30,7 @@
         }],
     };
 
-
+    console.log(data.datasets.data);
 
 
     let arr = <?php echo $all_sales; ?>
