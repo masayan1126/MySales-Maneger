@@ -30,7 +30,7 @@ class SalesController extends Controller
     public function delete(Request $request){
       $all_sales = DB::table('sales')
       ->where('id', '=' , $request->check)
-      ->get();
+      ->first();
       $result = $all_sales->delete();
       $view = view('index');
       return $view;
