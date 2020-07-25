@@ -53,7 +53,7 @@
               beginAtZero: true,
               max: 8000,
               min: 800,
-              stepSize: 200,
+              stepSize: 1000,
               // stepSize: 2,
             },
           }]
