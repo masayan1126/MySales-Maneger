@@ -20,5 +20,6 @@ Route::get('/form', 'SalesController@form');
 Route::get('/complete', 'SalesController@complete');
 Route::post('/result', 'SalesController@filter');
 Route::post('/add', 'SalesController@store');
+Route::post('/delete', 'SalesController@delete');
 Route::get('/top','SalesController@top');
 Route::get('/analytics','SalesController@drawChart');

@@ -32,10 +32,13 @@
   </div>
   @include('parts.menu')
   <div class="container-fluid pt-4">
+  <form action="/delete" method="POST" class="form-horizontal">
+  {{ csrf_field() }}
   <div class="table-responsive-md">
     <table class="table table-sm">
       <thead class="thead-light">
         <tr>
+          <th scope="col" class="text-nowrap"><input type="checkbox[]">チェック</th>
           <th scope="col" class="text-nowrap">#</th>
           <th scope="col" class="text-nowrap">商品番号
           <span class="pt-0 pb-0" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-filter"></i></span>
@@ -55,6 +58,7 @@
   <tbody>
   @foreach($all_sales as $sales)
     <tr>
+      <td scope="row"><input name="check[]" type="checkbox" value="{{ $sales->id }}"></td>
       <td scope="row">{{$sales->id}}</td>
       <td scope="row">{{$sales->product_number}}</td>
       <td scope="row">{{$sales->product_color}}</td>
@@ -66,6 +70,7 @@
   </tbody>
 </table>
 </div>
+</form>
 </div>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

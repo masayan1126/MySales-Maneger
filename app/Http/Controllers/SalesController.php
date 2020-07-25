@@ -27,6 +27,12 @@ class SalesController extends Controller
       return $view;
     }
 
+    public function delete(Request $request){
+      Post::destroy($request->check);
+      $view = view('index');
+      return $view;
+    }
+
     public function index(){
       $view = view('index');
       $all_sales = DB::table('sales')->get();

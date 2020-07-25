@@ -14,6 +14,7 @@ class CreateSalesTable extends Migration
     public function up()
     {
         Schema::create('sales', function (Blueprint $table) {
+            $table->boolean('check')->default(false);
             $table->bigIncrements('id');
             $table->string('product_number')->nullable();
             $table->string('product_color')->nullable();
