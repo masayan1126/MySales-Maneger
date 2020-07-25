@@ -34,7 +34,6 @@
 
 
     let arr = <?php echo $all_sales; ?>
-    console.log(arr);
 
     arr.forEach(element => {
       data.datasets.data.push(element);
