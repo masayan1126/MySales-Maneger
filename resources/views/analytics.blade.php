@@ -48,6 +48,14 @@
         responsive: true,
         maintainAspectRatio: false,
         scales: {
+          xAxes: [{
+            ticks: {
+            },
+            scaleLabel: {
+              display: true,
+              labelString: '',
+            },
+          }],
           yAxes: [{
             ticks: {
               beginAtZero: true,
