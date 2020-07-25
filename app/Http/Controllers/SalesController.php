@@ -28,10 +28,8 @@ class SalesController extends Controller
     }
 
     public function delete(Request $request){
-      $all_sales = DB::table('sales')
-      ->where('id', '=' , $request->check)
-      ->first();
-      $all_sales->delete();
+      $all_sales = Sale::where('id', '=' , $request->check)
+      ->delete();
       $view = view('index');
       return $view;
     }
