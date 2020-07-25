@@ -14,7 +14,7 @@
 @include('parts.menu')
 <!-- <div id="app" class="container-fluid pt-4"> -->
 <h2>トップ画面</h2>
-<canvas id="chart"></canvas>
+<!-- <canvas id="chart"></canvas> -->
   <!-- <example-component></example-component>
   <Chart></Chart> -->
 </div>

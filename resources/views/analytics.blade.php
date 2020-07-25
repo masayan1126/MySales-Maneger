@@ -24,13 +24,11 @@
     var type = 'line';
     var data = {
         labels: ['2018-01', '2018-02', '2018-03', '2018-04', '2018-04', '2018-01', '2018-02', '2018-03', '2018-04', '2018-04'],
-        borderColor: '#ffd700',
-        backgroundColor: [
-          'rgba(255, 255, 255, 1)',
-        ],
         datasets: [{
             label: 'type A',
             data: [],
+            borderColor: '#ffd700',
+            backgroundColor: 'rgba(255, 255, 255, 1)',
         }],
     };
     // console.log(data.datasets[0].data);
