@@ -31,7 +31,7 @@
     };
 
     
-    let arr = <?php echo $all_sales; ?>
+    let arr = <?php echo $all_sales; ?>;
     let newArr = [];
     console.log(arr);
     console.log(newArr);
