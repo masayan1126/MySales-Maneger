@@ -24,6 +24,10 @@
     var type = 'line';
     var data = {
         labels: ['2018-01', '2018-02', '2018-03', '2018-04', '2018-04'],
+        borderColor: '#ffd700',
+        backgroundColor: [
+          'rgba(255, 255, 255, 1)',
+        ],
         datasets: [{
             label: 'type A',
             data: [26, 21],
@@ -43,10 +47,6 @@
     var myChart = new Chart(ctx, {
         type: type,
         data: data,
-        borderColor: '#ffd700',
-        backgroundColor: [
-          'rgba(255, 255, 255, 1)',
-        ],
         options: options  
   });
 </script>
