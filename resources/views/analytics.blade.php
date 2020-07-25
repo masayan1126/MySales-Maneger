@@ -35,6 +35,7 @@
 
     arr.forEach(element => {
       data.datasets[0].data.push(element.sales_amount);
+      console.log(element.sales_amoun);
     });
 
     var options;
