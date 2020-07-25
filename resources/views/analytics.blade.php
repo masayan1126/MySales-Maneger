@@ -28,7 +28,7 @@
             label: 'type A',
             data: [],
             borderColor: '#ffd700',
-            backgroundColor: 'rgba(255, 255, 255, 1)',
+            backgroundColor: 'rgba(255, 255, 255, 0)',
         }],
     };
     // console.log(data.datasets[0].data);
