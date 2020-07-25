@@ -29,16 +29,12 @@
             data: [26, 21],
         }],
     };
-
-    
-    console.log(data.datasets[0].data);
+    // console.log(data.datasets[0].data);
     let arr = <?php echo $all_sales; ?>;
-    let newArr = [];
     console.log(arr);
-    console.log(newArr);
 
     arr.forEach(element => {
-      newArr.push(element.sales_amount);
+      data.datasets[0].data.push(element.sales_amount);
     });
     console.log(newArr);
 
