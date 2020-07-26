@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/','SalesController@top');
+Route::get('/','SalesController@entrance');
 Route::get('/index', 'SalesController@index');
 Route::get('/form', 'SalesController@form');
 Route::get('/complete', 'SalesController@complete');

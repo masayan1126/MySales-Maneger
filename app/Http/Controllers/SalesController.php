@@ -74,4 +74,9 @@ class SalesController extends Controller
       $view = view('top');
       return $view;
     }
+
+    public function entrance(){
+      $view = view('home');
+      return $view;
+    }
 }
