@@ -23,3 +23,6 @@ Route::post('/add', 'SalesController@store');
 Route::post('/delete', 'SalesController@delete');
 Route::get('/top','SalesController@top');
 Route::get('/analytics','SalesController@drawChart');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
