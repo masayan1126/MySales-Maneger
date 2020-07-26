@@ -12,6 +12,7 @@
 </head>
 <body>
 @include('parts.menu')
+@extends('layouts.app')
 <!-- <div id="app" class="container-fluid pt-4"> -->
 <h2>トップ画面</h2>
 <!-- <canvas id="chart"></canvas> -->
