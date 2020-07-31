@@ -11,7 +11,8 @@
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script> -->
 </head>
 <body>
-@include('parts.menu')
+<!-- @include('parts.menu') -->
+@extends('layouts.app')
 <!-- <div id="app" class="container-fluid pt-4"> -->
 <h2>トップ画面</h2>
 <!-- <canvas id="chart"></canvas> -->
