@@ -1,5 +1,5 @@
 <body>
-  @extends('layouts.app')
+@extends('layouts.app')
   <div class="container">
     <h2>トップ画面</h2>
     <p>テスト</p>

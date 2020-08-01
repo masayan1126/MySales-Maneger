@@ -30,7 +30,7 @@
       </div>
     </div>
   </div>
-  @include('parts.menu')
+  @extends('layouts.app')
   <div class="container-fluid pt-4">
   <form action="/delete" method="POST" class="form-horizontal">
   {{ csrf_field() }}
