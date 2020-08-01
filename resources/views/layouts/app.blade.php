@@ -60,7 +60,7 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-                                    <a class="navbar-brand" href="{{ url('/form') }}">
+                                    <a class="navbar-brand" href="{{ url('/form') }}">売上データ入力</a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
