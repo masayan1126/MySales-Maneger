@@ -11,7 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
 </head>
 <body>
-@extends('layouts.app')
+@include('layouts.menu')
   <div class="container-fluid pt-4">
   <canvas id="chart"></canvas>
 </div>
@@ -71,5 +71,6 @@
       }
     });
 </script>
+@include('common.script')
 </body>
 </html>

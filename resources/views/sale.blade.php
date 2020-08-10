@@ -1,6 +1,6 @@
+@include('common.head')
 <body>
-@extends('layouts.app')
-@section('content')
+@include('layouts.menu')
 <div class="container-fluid pt-4">
   <form action="/add" method="POST" class="form-horizontal">
   {{ csrf_field() }}
@@ -52,5 +52,5 @@ for($i = 1; $i<=31; $i++):?>
 
     <button type="submit" class="btn btn-warning" name="add">追加</button>
   </form>
+  @include('common.script')
 </body>
-@endsection

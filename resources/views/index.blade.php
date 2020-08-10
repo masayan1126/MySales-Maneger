@@ -1,6 +1,6 @@
-@extends('layouts.app')
-@section('content')
+@include('common.head')
 <body>
+@include('layouts.menu')
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -65,4 +65,8 @@
   <button type="submit" class="btn btn-warning" name="delete">削除</button>
 </form>
 </div>
-@endsection
+<div id="app">
+    <example-component></example-component>
+</div>
+@include('common.script')
+</body>

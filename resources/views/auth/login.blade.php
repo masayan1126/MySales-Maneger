@@ -1,6 +1,5 @@
-@extends('layouts.app')
-
-@section('content')
+@include('common.head')
+@include('layouts.menu')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -69,5 +68,5 @@
             </div>
         </div>
     </div>
+    @include('common.script')
 </div>
-@endsection

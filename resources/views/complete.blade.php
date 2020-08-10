@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body>
-@include('parts.menu')
+@include('layouts.menu')
   <div class="complete container-fluid">
     <div class="jumbotron m-5">
       <h1 class="display-5">登録完了!</h1>

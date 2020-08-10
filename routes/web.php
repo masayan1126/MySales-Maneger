@@ -16,6 +16,7 @@ use Illuminate\Http\Request;
 
 Route::get('/','SalesController@entrance');
 Route::get('/index', 'SalesController@index');
+Route::get('/product', 'SalesController@showProduct');
 Route::get('/form', 'SalesController@form');
 Route::get('/complete', 'SalesController@complete');
 Route::post('/result', 'SalesController@filter');
@@ -23,6 +24,14 @@ Route::post('/add', 'SalesController@store');
 Route::post('/delete', 'SalesController@delete');
 Route::get('/top','SalesController@top');
 Route::get('/analytics','SalesController@drawChart');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

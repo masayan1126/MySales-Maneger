@@ -27,7 +27,7 @@
       </div>
     </div>
   </div>
-  @extends('layouts.app')
+  @include('layouts.menu')
   <div class="container-fluid pt-4">
   <div class="table-responsive-md">
     <table class="table table-sm">
