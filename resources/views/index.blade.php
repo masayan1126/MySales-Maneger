@@ -38,7 +38,7 @@
       <th scope="col" class="text-nowrap">カラー
       <span class="pt-0 pb-0" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-filter"></i></span>
       </th>
-      <th scope="col" class="text-nowrap">出品時間区分
+      <th scope="col" class="text-nowrap">販売経路
       <span class="pt-0 pb-0" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-filter"></i></span>
       </th>
       <th scope="col" class="text-nowrap">売上日
@@ -54,7 +54,7 @@
       <td scope="row">{{$sales->id}}</td>
       <td scope="row">{{$sales->product_number}}</td>
       <td scope="row">{{$sales->product_color}}</td>
-      <td scope="row">{{$sales->exhibition_timezone}}</td>
+      <td scope="row">{{$sales->sales_channel}}</td>
       <td scope="row">{{$sales->sales_date}}</td>
       <td scope="row">{{$sales->sales_amount}}</td>
     </tr>

@@ -21,7 +21,7 @@ class SalesController extends Controller
       $sale->product_color = $request->productColor;
       $sale->sales_date = "{$request->salesYear}/{$request->salesMonth}/{$request->salesDay}";
       $sale->sales_amount = $request->salesAmount;
-      $sale->exhibition_timezone = $request->exhibitionTimeZone;
+      $sale->sales_channel = $request->salesChannel;
       $sale->save();
       $view = view('complete');
       return $view;

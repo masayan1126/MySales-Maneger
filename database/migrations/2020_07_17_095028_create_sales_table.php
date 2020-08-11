@@ -18,7 +18,7 @@ class CreateSalesTable extends Migration
             $table->bigIncrements('id');
             $table->string('product_number')->nullable();
             $table->string('product_color')->nullable();
-            $table->string('exhibition_timezone')->nullable();
+            $table->string('sales_channel')->nullable();
             $table->string('sales_date')->nullable();
             $table->integer('sales_amount')->nullable();
             $table->timestamps();
