@@ -1,5 +1,5 @@
 @include('layouts.menu')
-@include('common.head')
+@include ('common.head', ['title' => 'test'])
 
 <div class="container">
     <div class="row justify-content-center">

@@ -1,4 +1,4 @@
-@include('common.head')
+@include ('common.head', ['title' => 'test'])
 <body>
 @include('layouts.menu')
 <div class="container-fluid pt-4">
