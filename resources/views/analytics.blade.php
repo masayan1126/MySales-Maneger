@@ -12,6 +12,7 @@
 </head>
 <body>
 @include('layouts.menu')
+test
 <div class="container-fluid pt-4">
   <canvas id="chart"></canvas>
 </div>
