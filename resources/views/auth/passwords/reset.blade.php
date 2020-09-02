@@ -1,5 +1,7 @@
-@extends('layouts.app')
+@include('common.head', ['title' => 'reset'])
 
+@include('layouts.menu')
+@extends('common.template')
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

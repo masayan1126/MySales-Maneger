@@ -6,3 +6,27 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+.bg-lite-blue{
+  background-color:#7fbfff;
+}
+
+.bg-lite-orange{
+  background-color:#ffbf7f !important;
+}
+
+.bg-lite-green{
+  background-color:#bfff7f;
+}
+
+.max-width-500{
+  max-width: 500px;
+}
+
+.max-width-300{
+  max-width: 300px;
+}
+
+.max-width-400{
+  max-width: 400px !important;
+}

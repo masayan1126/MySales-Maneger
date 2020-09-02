@@ -1,8 +1,15 @@
-@include ('common.head', ['title' => 'test'])
-<body>
 @include('layouts.menu')
-<div class="container-fluid pt-4">
-  <form action="/add" method="POST" class="form-horizontal">
+@extends('common.template')
+@section('title')
+sale
+@endsection
+@section('content')
+<div class="mx-auto">
+<div class="card max-width-500 mx-auto">
+  <h5 class="card-header">Featured</h5>
+  <div class="card-body">
+
+<form class="" action="/add" method="POST" class="form-horizontal">
   {{ csrf_field() }}
   @include('parts.select')
   <div class="form-group">
@@ -35,9 +42,9 @@ for($i = 1; $i<=31; $i++):?>
 <option value="<?php echo $i;?>"><?php echo $i;?></option>
 <?php endfor;?>
 </select>日
-        </div>
-        </div> 
-        </div>
+</div>
+</div> 
+</div>
 <div class="form-group">
 <label for="sales-amount">売上利益</label>
 <div class="row">
@@ -49,8 +56,9 @@ for($i = 1; $i<=31; $i++):?>
   </div>
   </div>
   </div>
+  <button type="submit" class="btn bg-lite-orange text-white" name="add">追加</button>
+  </div>
+</div>
+</div>
 
-    <button type="submit" class="btn btn-warning" name="add">追加</button>
-  </form>
-  @include('common.script')
-</body>
+  @endsection

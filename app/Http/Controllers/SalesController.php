@@ -10,8 +10,6 @@ class SalesController extends Controller
 {
     public function form(){
       $view = view('sale');
-      // $all_sales = DB::table('sales')->get();
-      // $view->all_sales = $all_sales;
       return $view;
     }
 
@@ -40,6 +38,13 @@ class SalesController extends Controller
       $view = view('index');
       $all_sales = DB::table('sales')->get();
       $view->all_sales = $all_sales;
+      return $view;
+    }
+
+    public function showProduct(){
+      $view = view('product');
+      $all_product = DB::table('products')->get();
+      $view->product = $all_product;
       return $view;
     }
     
@@ -80,8 +85,14 @@ class SalesController extends Controller
       return $view;
     }
 
-    public function showProduct(){
-      $view = view('product');
+    public function card(){
+      $view = view('card');
       return $view;
     }
+
+    public function maintenance(){
+      $view = view('Maintenance');
+      return $view;
+    }
+
 }

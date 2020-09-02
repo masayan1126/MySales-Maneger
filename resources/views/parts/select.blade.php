@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>salse</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-</head>
-<body>
 <div id="select">
-<div class="form-group">
-    <label for="product-number-Selection">商品番号</label>
+  <div class="form-group">
+    <label for="product-number-Selection">商品名</label>
     <select name="productNumber" class="form-control col-4" id="product-number-Selection">
       <option>【IC001】</option>
       <option>【IC002】</option>
@@ -26,7 +17,7 @@
       <option>【IC008-4】</option>
     </select>
   </div>
-  <div class="form-group">
+  <!-- <div class="form-group">
     <label for="product-color-selection">商品カラー</label>
     <select name="productColor" class="form-control col-4" id="product-color-selection">
       <option value="ゴールド">ゴールド</option>
@@ -41,9 +32,9 @@
       <option value="パープル">パープル</option>
       <option value="グレー">グレー</option>
     </select>
-  </div>
+  </div> -->
   <div class="form-groupp-0">
-    <label for="sales_channel">販売経路</label>
+    <label for="sales_channel">販路</label>
     <select name="salesChannel" class="form-control col-4" id="sales_channel">
       <option>メルカリ</option>
       <option>ECサイト</option>
@@ -54,6 +45,3 @@
     </select>
   </div>
 </div>
-<script>
-</script>
-</body>
