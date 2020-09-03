@@ -9,7 +9,7 @@ product
   <form action="image_complete" method="post">
     @csrf
     <h4 class="">商品画像</h4>
-    <img src="{{ $data['read_temp_path'] }}" width="200" height="200"></td>
+    <img src="{{$path}}" width="200" height="200"></td>
     <h4 class="mt-3">商品名：{{ $data['product_name'] }}</h4>
     <input type="submit" class="btn bg-lite-orange text-white mt-4" name="action" value="完了" />
   </form>

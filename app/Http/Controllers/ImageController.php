@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+// use Illuminate\Support\Facades\Storage;
+use Storage;
 use App\Product;
 
 class ImageController extends Controller
@@ -12,26 +13,35 @@ class ImageController extends Controller
     }
     
     public function postImageConfirm(Request $request){
+      $product = new Product();
+      $form = $request->all();
       //$post_dataにinputの値だけをいれる
-      $post_data = $request->except('imagefile');
-
-      $product_name = $post_data['product_name']; 
       $imagefile = $request->file('imagefile');
+      $path = Storage::disk('s3')->putFile('products', $imagefile, 'public');
+      $product->path = Storage::disk('s3')->url($path);
+      $product->product_name = $request->product_name;
+      $product->save();
+
+
+      // $post_data = $request->except('imagefile');
+      // $product_name = $post_data['product_name']; 
       //アップロードファイルの保存   
-      $temp_path = $imagefile->store('public/temp');
+      // $temp_path = $imagefile->store('public/temp');
       //public/temp → storage/tempへ変更
-      $read_temp_path = str_replace('public/', 'storage/', $temp_path);
+      // $read_temp_path = str_replace('public/', 'storage/', $temp_path);
       
-      $data = array(
-        //public/tempに保存したファイル
-        'temp_path' => $temp_path,
-        //storage/tempのファイルパス
-        'read_temp_path' => $read_temp_path,
-        'product_name' => $product_name,
-      );
-      $request->session()->put('data', $data);
+      // $data = array(
+      //   public/tempに保存したファイル
+      //   'temp_path' => $temp_path,
+      //   storage/tempのファイルパス
+      //   'read_temp_path' => $read_temp_path,
+      //   'product_name' => $product_name,
+      //   'image_file' => $imagefile,
+      // );
+      // $request->session()->put('data', $data);
       //compactでviewにdataを渡す
-      return view('image_confirm', compact('data') );
+      // $path = Storage::disk('s3');
+      // return view('image_confirm', compact('path') );
     }
 
     public function postImageComplete(Request $request) {
@@ -57,7 +67,10 @@ class ImageController extends Controller
 
         $product->path = $read_path;
         $product->product_name = $product_name;
+        // $this->productcontroller->path = $read_path;
+        // $this->productcontroller->product_name = $product_name;
         $product->save();
+        // return view('image_input');
         return view('image_input');
     }
 
