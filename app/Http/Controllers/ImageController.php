@@ -57,10 +57,7 @@ class ImageController extends Controller
 
         $product->path = $read_path;
         $product->product_name = $product_name;
-        // $this->productcontroller->path = $read_path;
-        // $this->productcontroller->product_name = $product_name;
         $product->save();
-        // return view('image_input');
         return view('image_input');
     }
 
