@@ -5,9 +5,9 @@ login
 @endsection
 @section('content')
 <div class="row justify-content-center">
-  <div class="col-md-8">
+  <div class="col-12 col-sm-10 col-md-10 col-lg-6 col-xl-6">
     <div class="card">
-      <div class="card-header">{{ __('Login') }}</div>
+      <div class="card-header"><h4>{{ __('Login') }}</h4></div>
         <div class="card-body">
           <form method="POST" action="{{ route('login') }}">@csrf
           <div class="form-group row">
@@ -33,7 +33,7 @@ login
             </div>
           </div>
           <div class="form-group row">
-            <div class="col-md-6 offset-md-4">
+            <div class="col-md-6 offset-md-4 p-1 pl-3">
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                 <label class="form-check-label" for="remember">{{ __('Remember Me') }}</label>

@@ -22,7 +22,6 @@ class ImageController extends Controller
       $product->product_name = $request->product_name;
       $product->save();
 
-
       // $post_data = $request->except('imagefile');
       // $product_name = $post_data['product_name']; 
       //アップロードファイルの保存   
