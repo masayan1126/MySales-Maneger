@@ -7,7 +7,7 @@ import Chartdata from './Chartdata';
 // import { Line } from 'vue-chartjs';
 
 export default {
-  props: ['target_sales'],
+  props: ['sales'],
   components: {
     Chartdata,
   },
@@ -17,12 +17,12 @@ export default {
     }
   },
   created () {
+    console.log(this.sales);
     this.sales.forEach(data => {
       this.chardDataArr.push(data);
     });
   },
   mounted() {
-    // console.log(this.chardDataArr);
   },
 }
 </script>

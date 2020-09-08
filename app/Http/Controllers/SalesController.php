@@ -133,6 +133,8 @@ class SalesController extends Controller
       ->get();
       // dd($target_sales);
       $view->target_sales = $target_sales;
+      $view->salesYear = $request->salesYear;
+      $view->salesMonth = $request->salesMonth;
       return $view;
     }
 

@@ -11,6 +11,7 @@ anaylytics
               <div class="row">
                 <div class="col-4">
                   <select name="salesYear" id="sales-year-selection" class="form-control custom-select">
+                    <option value="{{ $salesYear }}">{{ $salesYear }}</option>
                     <?php
                       for($i = 2020; $i<= 2100; $i++):?>
                       <option value="<?php echo $i;?>"><?php echo $i;?></option>
@@ -19,6 +20,7 @@ anaylytics
                 </div>
                 <div class="col-4">
                   <select name="salesMonth" class="form-control custom-select">
+                  <option value="{{ $salesMonth }}">{{ $salesMonth }}</option>
                     <?php
                       for($i = 1; $i<=12; $i++):?>
                       <option value="<?php echo $i;?>"><?php echo $i;?></option>
