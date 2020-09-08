@@ -3,13 +3,35 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 // use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 use Storage;
 use App\Product;
 
 class ImageController extends Controller
 {
     public function getImageInput(){
-      return view('image_input');
+      $view = view('image_input');
+      // $all_product = DB::table('products')->get();
+      // $view->all_products = $all_product;
+      return $view;
+    }
+
+    public function getProductList(){
+      $view = view('maintenance');
+      $all_product = DB::table('products')->get();
+      $all_channel = DB::table('channels')->get();
+      $view->all_products = $all_product;
+      $view->all_channel = $all_channel;
+      return $view;
+    }
+
+    public function deleteProduct(Request $request){
+      $all_sales = Sale::where('id', '=' , $request->check)
+      ->delete();
+      $view = view('index');
+      $all_sales = DB::table('sales')->get();
+      $view->all_sales = $all_sales;
+      return $view;
     }
     
     public function postImageConfirm(Request $request){

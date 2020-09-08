@@ -1,77 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>salse</title>
-    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet" type="text/css">
-    <!-- ChartJS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
-</head>
-<body>
 @include('layouts.menu')
-test...
-<div class="container-fluid pt-4">
-  <canvas id="chart"></canvas>
-  <p>test</p>
-</div>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-  <script src="{{ mix('js/app.js') }}"></script>
-  <script>
-    var type = 'line';
-    var data = {
-        labels: [],
-        datasets: [{
-            label: '売上の推移(月ベース)',
-            data: [],
-            borderColor: '#ffd700',
-            backgroundColor: 'rgba(255, 255, 255, 0)',
-        }],
-    };
-    // console.log(data.datasets[0].data);
-    let arr = <?php echo $all_sales; ?>;
-    console.log(arr);
+@extends('common.template')
+@section('title')
+anaylytics
+@endsection
+@section('content')
+<form action="analytics" method="GET" enctype="multipart/form-data" id="form">
+      @csrf
+            <div class="form-group">
+              <label for="sales-year-selection">売上月</label>
+              <div class="row">
+                <div class="col-4">
+                  <select name="salesYear" id="sales-year-selection" class="form-control custom-select">
+                    <?php
+                      for($i = 2020; $i<= 2100; $i++):?>
+                      <option value="<?php echo $i;?>"><?php echo $i;?></option>
+                    <?php endfor;?>
+                  </select>年
+                </div>
+                <div class="col-4">
+                  <select name="salesMonth" class="form-control custom-select">
+                    <?php
+                      for($i = 1; $i<=12; $i++):?>
+                      <option value="<?php echo $i;?>"><?php echo $i;?></option>
+                    <?php endfor;?>
+                  </select>月
+                </div>
+              </div> 
+              <input class="btn bg-lite-orange text-white mt-4" type="submit" name="confirm" id="button" value="表示" />
+            </div>
+            </form>
+<analytics-component :sales="{{ $target_sales }}"></analytics-component>
+@endsection
+@section('script')
+<script>
 
-    arr.forEach(element => {
-      data.datasets[0].data.push(element.sales_amount);
-      data.labels.push(element.sales_date);
-    });
-
-    var ctx = $('#chart')[0].getContext('2d');
-    var myChart = new Chart(ctx, {
-      type: type,
-      data: data,
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-          xAxes: [{
-            ticks: {
-              maxRotation: 45, // 自動的に回転する角度を固定
-              minRotation: 45,
-            },
-            scaleLabel: {
-              display: true,
-              labelString: '',
-            },
-          }],
-          yAxes: [{
-            ticks: {
-              beginAtZero: true,
-              max: 6000,
-              min: 800,
-              stepSize: 1000,
-              // stepSize: 2,
-            },
-          }]
-        }
-      }
-    });
 </script>
-@include('common.script')
-</body>
-</html>
+@endsection

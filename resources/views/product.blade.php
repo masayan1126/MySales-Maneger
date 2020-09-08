@@ -6,8 +6,8 @@ product
 @section('content')
   <h2 class="">Your Product</h2>
 @if ($product === null)
-   管理画面からあなたの商品を登録しましょう
+  管理画面からあなたの商品を登録しましょう
 @else
-  <product-component :product="{{ $product }}"></product-component>
+  <product-component :products="{{ $product }}"></product-component>
 @endif
 @endsection

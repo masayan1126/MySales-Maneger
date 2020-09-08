@@ -10933,7 +10933,7 @@ a.text-dark:focus {
 }
 
 .bg-lite-orange {
-  background-color: #ffbf7f;
+  background-color: #ffbf7f !important;
 }
 
 .bg-lite-green {
@@ -10941,10 +10941,30 @@ a.text-dark:focus {
 }
 
 .max-width-500 {
-  max-width: 500px;
+  max-width: 500px !important;
 }
 
 .max-width-300 {
   max-width: 300px;
+}
+
+.max-width-400 {
+  max-width: 400px !important;
+}
+
+.max-width-700 {
+  max-width: 700px !important;
+}
+
+.min-width-500 {
+  min-width: 500px !important;
+}
+
+.hide {
+  display: none !important;
+}
+
+.show {
+  display: block;
 }
 

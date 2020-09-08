@@ -1,5 +1,5 @@
-<div id="menu" class="mb-3">
-  <nav class="navbar navbar-expand-md navbar-light bg-lite-blue shadow-sm">
+<div id="menu" class="mb-4">
+  <nav class="navbar navbar-expand-md navbar-light bg-lite-blue shadow">
     <div class="container-fluid">
       <a class="navbar-brand text-white" href="{{ url('/') }}">{{ config('app.name') }}</a>
       <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -26,13 +26,13 @@
               <a class="dropdown-item" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">
-                {{ __('Logout') }}
+                {{ __('ログアウト') }}
               </a>
               <a class="dropdown-item" href="{{ url('/product') }}">商品一覧</a>
               <a class="dropdown-item" href="{{ url('/index') }}">売上一覧</a>
-              <a class="dropdown-item" href="{{ url('/form') }}">売上データ入力</a>
-              <a class="dropdown-item" href="{{ url('/analytics') }}">データ分析</a>
-              <a class="dropdown-item" href="{{ url('/image_input') }}">管理画面</a>
+              <a class="dropdown-item" href="{{ url('/sale') }}">売上データ入力</a>
+              <a class="dropdown-item" href="{{ url('/analytics') }}">売上分析</a>
+              <a class="dropdown-item" href="{{ url('/maintenance') }}">メンテナンス</a>
               <form class="text-white" id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
               </form>
