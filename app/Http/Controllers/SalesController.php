@@ -121,7 +121,6 @@ class SalesController extends Controller
     }
 
     public function allocateView(Request $request){
-      // dd($request->operation);
       $all_sales = DB::table('sales')->get();
       $all_product = DB::table('products')->get();
       $all_channel = DB::table('channels')->get();
@@ -131,27 +130,40 @@ class SalesController extends Controller
         $view->products = $all_product;
         $view->all_channel = $all_channel;
       } else if($request->operation === 'update') {
-        $view = view('sale_update');
-        $all_sales = Sale::where('id', '=' , $request->check)->first();
-        // dd($all_sales);
-        $view->product_numbers = $all_sales->product_number;
-        $view->product_id = $all_sales->id;
-        $view->sales_date = $all_sales->sales_date;
-        $string = $all_sales->sales_date;
-        // $pattern= '/\d{3}-\d{4}/';
-        list($yyyy, $mm, $dd) = explode('/', $string);
-        $view->sales_year = $yyyy;
-        $view->sales_month = $mm;
-        $view->sales_day = $dd;
-        $view->sales_amount = $all_sales->sales_amount;
-        $target_channel = $all_sales->sales_channel;
-        $else_channel = Channel::where('sales_channel', '!=' , $target_channel)->get();
-        $view->target_channel = $target_channel;
-        $view->else_channels = $else_channel;
-      } else {
-        $view = view('complete');
-        $delete_sales = Sale::where('id', '=' , $request->check)
-        ->delete();
+        if (count($request->check) !== 1 ) {
+          $view = view('failure');
+        } else {
+          $view = view('sale_update');
+          $all_sales = Sale::where('id', '=' , $request->check)->first();
+          // dd($all_sales);
+          $view->product_numbers = $all_sales->product_number;
+          $view->product_id = $all_sales->id;
+          $view->sales_date = $all_sales->sales_date;
+          $string = $all_sales->sales_date;
+          // $pattern= '/\d{3}-\d{4}/';
+          list($yyyy, $mm, $dd) = explode('/', $string);
+          $view->sales_year = $yyyy;
+          $view->sales_month = $mm;
+          $view->sales_day = $dd;
+          $view->sales_amount = $all_sales->sales_amount;
+          $target_channel = $all_sales->sales_channel;
+          $else_channel = Channel::where('sales_channel', '!=' , $target_channel)->get();
+          $view->target_channel = $target_channel;
+          $view->else_channels = $else_channel;
+        }
+      } else if ($request->operation === 'delete') {
+        if (!$request->check) {
+          $view = view('failure');
+        } else {
+          // dd($request->check);
+          $view = view('complete');
+          for ($i = 0; $i < count($request->check); $i++) {
+            $delete_sales = Sale::where('id', '=' , $request->check[$i])
+            ->delete();
+          }
+          // dd($delete_sales);
+          // ->delete();
+        }
       }
       return $view;
     }

@@ -20,6 +20,7 @@ Route::get('/product', 'SalesController@showProduct');
 Route::get('/sale', 'SalesController@inputSale');
 Route::get('/card', 'SalesController@card');
 Route::get('/complete', 'SalesController@complete');
+Route::get('/failure', 'SalesController@complete');
 Route::post('/result', 'SalesController@filter');
 Route::post('/add', 'SalesController@store');
 Route::post('/delete', 'SalesController@delete');

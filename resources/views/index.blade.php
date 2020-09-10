@@ -52,7 +52,7 @@ index
         <tbody>
           @foreach($all_sales as $sales)
           <tr>
-            <td scope="row"><input name="check" type="checkbox"  value="{{ $sales->id }}"></td>
+            <td scope="row"><input name="check[]" type="checkbox"  value="{{ $sales->id }}"></td>
             <td scope="row">{{$sales->product_number}}</td>
             <td scope="row">{{$sales->sales_channel}}</td>
             <td scope="row">{{$sales->sales_date}}</td>
