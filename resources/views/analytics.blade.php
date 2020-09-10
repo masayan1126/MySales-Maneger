@@ -20,6 +20,7 @@ anaylytics
                 </div>
                 <div class="col-4">
                   <select name="salesMonth" class="form-control custom-select">
+                  <option value="未指定">未指定</option>
                   <option value="{{ $salesMonth }}">{{ $salesMonth }}</option>
                     <?php
                       for($i = 1; $i<=12; $i++):?>
@@ -35,6 +36,5 @@ anaylytics
 @endsection
 @section('script')
 <script>
-
 </script>
 @endsection

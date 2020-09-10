@@ -30,8 +30,9 @@ Route::get('/image_input', 'ImageController@getImageInput');
 Route::post('/image_confirm', 'ImageController@postImageConfirm');
 Route::post('/add-channel', 'SalesController@addChannel');
 Route::post('/update-product', 'SalesController@updateProduct');
-Route::post('/sale-edit', 'SalesController@editSale');
+// Route::post('/sale-edit', 'SalesController@editSale');
 Route::post('/sale-update', 'SalesController@updateSale');
+Route::post('/allocate', 'SalesController@allocateView');
 Route::post('/channel', function(){
   return view('channel');
 });

@@ -7,7 +7,7 @@
       <div class="col-12">
         <select name="productNumber" class="form-control col-8 custom-select" id="product-number-Selection">
           @foreach($products as $product)
-          <option>{{$product->product_name}}</option>
+            <option>{{$product->product_name}}</option>
           @endforeach
         </select>
       </div>
@@ -20,12 +20,9 @@
       </div>
       <div class="col-12">
         <select name="salesChannel" class="form-control col-4 custom-select" id="sales_channel">
-          <option>メルカリ</option>
-          <option>ECサイト</option>
-          <option>ミンネ</option>
-          <option>クリーマ</option>
-          <option>SNS(インスタ)</option>
-          <option>その他</option>
+          @foreach($all_channel as $channel)
+            <option>{{$channel->sales_channel}}</option>
+          @endforeach
         </select>
       </div>
     </div>

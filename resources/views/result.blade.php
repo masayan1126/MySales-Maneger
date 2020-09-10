@@ -1,71 +1,88 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>salse</title>
-    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-</head>
-<body>
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-        @include('parts.select')
-        </div>
+@include('layouts.menu')
+@extends('common.template')
+@section('title')
+index
+@endsection
+@section('content')
+<h3>売上一覧</h3>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">抽出条件</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="/result" method="POST" class="form-horizontal">
+      <div class="modal-body">
+        {{ csrf_field() }}
+        @include('parts.select', ['$products' => '$products', '$all_channel' => '$all_channel'])
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+          <button type="submit" class="btn btn-primary " name="filter">Save changes</button>
         </div>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- モーダルここまで -->
+
+<div class="row mx-auto">
+  <form action="/index" id="sale-operation-form" method="GET" class="form-horizontal w-100">
+  <div class="form-group">
+    {{ csrf_field() }}
+    <div class="table-responsive">
+      <table class="table table-sm table-responsive-sm table-bordered">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col" class="text-nowrap">商品名
+              <span class="pt-0 pb-0" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-filter"></i></span>
+            </th>
+            <th scope="col" class="text-nowrap">販路
+              <span class="pt-0 pb-0" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-filter"></i></span>
+            </th>
+            <th scope="col" class="text-nowrap">売上日
+            </th>
+            <th scope="col" class="text-nowrap">利益
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          @foreach($all_sales as $sales)
+          <tr>
+            <td scope="row">{{$sales->product_number}}</td>
+            <td scope="row">{{$sales->sales_channel}}</td>
+            <td scope="row">{{$sales->sales_date}}</td>
+            <td scope="row">{{$sales->sales_amount}}</td>
+          </tr>
+          @endforeach
+        </tbody>
+      </table>
+    </div>
+    <div class="row">
+      <div class="col-12">
+      {{ csrf_field() }}
+        <input class="btn bg-lite-orange text-white" type="submit" name="confirm" id="button" value="全件表示"/>
       </div>
     </div>
   </div>
-  @include('layouts.menu')
-  <div class="container-fluid pt-4">
-  <div class="table-responsive-md">
-    <table class="table table-sm">
-      <thead class="thead-light">
-        <tr>
-          <th scope="col" class="text-nowrap">#</th>
-          <th scope="col" class="text-nowrap">商品番号
-          <span class="pt-0 pb-0" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-filter"></i></span>
-          </th>
-      <th scope="col" class="text-nowrap">カラー
-      <span class="pt-0 pb-0" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-filter"></i></span>
-      </th>
-      <th scope="col" class="text-nowrap">出品時間区分
-      <span class="pt-0 pb-0" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-filter"></i></span>
-      </th>
-      <th scope="col" class="text-nowrap">売上日
-      </th>
-      <th scope="col" class="text-nowrap">利益
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-  @foreach($all_sales as $sales)
-    <tr>
-      <td scope="row">{{$sales->id}}</td>
-      <td scope="row">{{$sales->product_number}}</td>
-      <td scope="row">{{$sales->product_color}}</td>
-      <td scope="row">{{$sales->sales_channel}}</td>
-      <td scope="row">{{$sales->sales_date}}</td>
-      <td scope="row">{{$sales->sales_amount}}</td>
-    </tr>
-    @endforeach
-  </tbody>
-</table>
+  </form>
 </div>
-</div>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-</body>
-</html>
+@endsection
+@section('script')
+<script type="text/javascript">
+  // const operateSelect = document.getElementById('sale-operate-select');
+  // const operationForm = document.getElementById('sale-operation-form');
+  // if (operateSelect.value === "add") {
+  //   operationForm.action = '/sale';  
+  //   console.log(operateSelect.value);
+  // } else if(operateSelect.value === "update") {
+  //   operationForm.action = '/sale-update';
+  //   console.log(operateSelect.value);
+  // }else if(operateSelect.value === "delete") {
+  //   operationForm.action = '/sale-delete';
+  //   console.log(operateSelect.value);
+  // }
+</script>
+@endsection

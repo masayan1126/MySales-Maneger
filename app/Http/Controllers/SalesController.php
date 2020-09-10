@@ -12,6 +12,8 @@ class SalesController extends Controller
     public function inputSale(){
       $view = view('sale');
       $all_products = DB::table('products')->get();
+      $all_channel = DB::table('channels')->get();
+      $view->all_channel = $all_channel;
       // ->get();
       // $sale->product_number = $request->productNumber;
       // $sale->product_color = $request->productColor;
@@ -55,28 +57,28 @@ class SalesController extends Controller
       return $view;
     }
 
-    public function editSale(Request $request){
-      $view = view('sale_update');
-      $all_sales = Sale::where('id', '=' , $request->check)->first();
-      // dd($all_sales);
-      $view->product_numbers = $all_sales->product_number;
-      $view->product_id = $all_sales->id;
-      $view->sales_date = $all_sales->sales_date;
-      $string = $all_sales->sales_date;
-      // $pattern= '/\d{3}-\d{4}/';
-      list($yyyy, $mm, $dd) = explode('/', $string);
-      $view->sales_year = $yyyy;
-      $view->sales_month = $mm;
-      $view->sales_day = $dd;
+    // public function editSale(Request $request){
+    //   $view = view('sale_update');
+    //   $all_sales = Sale::where('id', '=' , $request->check)->first();
+    //   // dd($all_sales);
+    //   $view->product_numbers = $all_sales->product_number;
+    //   $view->product_id = $all_sales->id;
+    //   $view->sales_date = $all_sales->sales_date;
+    //   $string = $all_sales->sales_date;
+    //   // $pattern= '/\d{3}-\d{4}/';
+    //   list($yyyy, $mm, $dd) = explode('/', $string);
+    //   $view->sales_year = $yyyy;
+    //   $view->sales_month = $mm;
+    //   $view->sales_day = $dd;
     
-      $view->sales_amount = $all_sales->sales_amount;
-      $target_channel = $all_sales->sales_channel;
-      $else_channel = Channel::where('sales_channel', '!=' , $target_channel)->get();
-      $view->target_channel = $target_channel;
-      $view->else_channels = $else_channel;
-      // $view->product_number = $target_sales->product_number;
-      return $view;
-    }
+    //   $view->sales_amount = $all_sales->sales_amount;
+    //   $target_channel = $all_sales->sales_channel;
+    //   $else_channel = Channel::where('sales_channel', '!=' , $target_channel)->get();
+    //   $view->target_channel = $target_channel;
+    //   $view->else_channels = $else_channel;
+    //   // $view->product_number = $target_sales->product_number;
+    //   return $view;
+    // }
 
     public function updateSale(Request $request){
       // $target_sales = Sale::where('id', '=' , $request->check)->first();
@@ -91,6 +93,10 @@ class SalesController extends Controller
       $view = view('complete');
       return $view;
     }
+
+    // public function deleteSale(Request $request){
+
+    // }
 
     public function _updateSale(Request $request){
       $sale = new Sale();
@@ -107,8 +113,46 @@ class SalesController extends Controller
       $view = view('index');
       $all_sales = DB::table('sales')->get();
       $all_product = DB::table('products')->get();
+      $all_channel = DB::table('channels')->get();
       $view->all_sales = $all_sales;
+      $view->all_channel = $all_channel;
       $view->products = $all_product;
+      return $view;
+    }
+
+    public function allocateView(Request $request){
+      // dd($request->operation);
+      $all_sales = DB::table('sales')->get();
+      $all_product = DB::table('products')->get();
+      $all_channel = DB::table('channels')->get();
+      if ($request->operation === 'add') {
+        $view = view('sale');
+        $view->all_channel = $all_channel;
+        $view->products = $all_product;
+        $view->all_channel = $all_channel;
+      } else if($request->operation === 'update') {
+        $view = view('sale_update');
+        $all_sales = Sale::where('id', '=' , $request->check)->first();
+        // dd($all_sales);
+        $view->product_numbers = $all_sales->product_number;
+        $view->product_id = $all_sales->id;
+        $view->sales_date = $all_sales->sales_date;
+        $string = $all_sales->sales_date;
+        // $pattern= '/\d{3}-\d{4}/';
+        list($yyyy, $mm, $dd) = explode('/', $string);
+        $view->sales_year = $yyyy;
+        $view->sales_month = $mm;
+        $view->sales_day = $dd;
+        $view->sales_amount = $all_sales->sales_amount;
+        $target_channel = $all_sales->sales_channel;
+        $else_channel = Channel::where('sales_channel', '!=' , $target_channel)->get();
+        $view->target_channel = $target_channel;
+        $view->else_channels = $else_channel;
+      } else {
+        $view = view('complete');
+        $delete_sales = Sale::where('id', '=' , $request->check)
+        ->delete();
+      }
       return $view;
     }
 
@@ -127,21 +171,42 @@ class SalesController extends Controller
       // ->where('id', '=' , 6)
       ->get();
       $view->all_sales = $all_sales;
-      $target_sales =
-      Sale::whereYear('sales_date', '=' ,$sale_year)
-      ->whereMonth('sales_date', '=', $sale_month)
-      ->get();
-      // dd($target_sales);
-      $view->target_sales = $target_sales;
-      $view->salesYear = $request->salesYear;
-      $view->salesMonth = $request->salesMonth;
-      return $view;
+      if ($sale_month === '未指定') {
+        $target_sales = Sale::whereYear('created_at', $sale_year)
+        ->orderBy('created_at')
+        ->get()
+        ->groupBy(function ($row) {
+          return $row->created_at->format('m');
+        })
+        ->map(function ($day) {
+          return $day->sum('sales_amount');
+        });
+        $view->target_sales = $target_sales;
+        // dd($target_sales);
+        $view->salesYear = $request->salesYear;
+        $view->salesMonth = $request->salesMonth;
+        return $view;
+      } else {
+        // 日付単位の集計
+        // dd($sale_year);
+        $target_sales =
+        Sale::whereYear('sales_date', '=' ,$sale_year)
+        ->whereMonth('sales_date', '=', $sale_month)
+        ->get();
+        $view->target_sales = $target_sales;
+        $view->salesYear = $request->salesYear;
+        $view->salesMonth = $request->salesMonth;
+        // 月ごとの集計
+        return $view;
+      }
     }
 
     public function filter(Request $request){
       $view = view('result');
       // $sale = new Sale();
-      $all_sales = DB::table('sales')->where('product_color', '=' , "{$request->productColor}")
+      $filtered_data = DB::table('sales')
+      ->where('product_number', '=' , "{$request->productNumber}")
+      ->where('sales_channel', '=' , "{$request->salesChannel}")
       ->get();
       // ->get();
       // $sale->product_number = $request->productNumber;
@@ -149,7 +214,12 @@ class SalesController extends Controller
       // $sale->sales_date = "{$request->salesYear}/{$request->salesMonth}/{$request->salesDay}";
       // $sale->sales_amount = $request->salesAmount;
       // $sale->exhibition_timezone = $request->exhibitionTimeZone;
-      $view->all_sales = $all_sales;
+      $view->all_sales = $filtered_data;
+      $all_sales = DB::table('sales')->get();
+      $all_product = DB::table('products')->get();
+      $all_channel = DB::table('channels')->get();
+      $view->all_channel = $all_channel;
+      $view->products = $all_product;
       return $view;
     }
 

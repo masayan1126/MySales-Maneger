@@ -31,8 +31,8 @@ export default {
           yAxes: [{
             ticks: {
               beginAtZero: true,
-              stepSize: 100,
-              max: 5000,
+              stepSize: 1000,
+              max: 20000,
               min: 0,
             }
           }]
@@ -41,11 +41,12 @@ export default {
     }
   },
   created() {
+    console.log(this.sales);
     this.sales.forEach(data => {
-      this.data.labels.push(data.sales_date);
-      console.log(this.data.labels);
-      this.data.datasets[0].data.push(data.sales_amount);
-      console.log(this.data.datasets[0].data);
+      this.data.labels.push(data.key);
+      // console.log(this.data.labels);
+      this.data.datasets[0].data.push(data.value);
+      // console.log(this.data.datasets[0].data);
       // console.log(this.sales);
     });
   },
