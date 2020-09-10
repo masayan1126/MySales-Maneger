@@ -228,8 +228,8 @@ class SalesController extends Controller
       return $view;
     }
 
-    public function card(){
-      $view = view('card');
+    public function complete(){
+      $view = view('complete');
       return $view;
     }
 

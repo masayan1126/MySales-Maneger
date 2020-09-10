@@ -30,7 +30,6 @@
               </a>
               <a class="dropdown-item" href="{{ url('/product') }}">商品一覧</a>
               <a class="dropdown-item" href="{{ url('/index') }}">売上一覧</a>
-              <a class="dropdown-item" href="{{ url('/sale') }}">売上データ入力</a>
               <a class="dropdown-item" href="{{ url('/analytics') }}">売上分析</a>
               <a class="dropdown-item" href="{{ url('/maintenance') }}">メンテナンス</a>
               <form class="text-white" id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
