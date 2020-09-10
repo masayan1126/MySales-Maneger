@@ -4,6 +4,9 @@
 index
 @endsection
 @section('content')
+@if (session('alert'))
+<div class="alert alert-warning">{{ session('alert') }}</div>
+@endif
 <h3>売上一覧</h3>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -52,7 +55,7 @@ index
         <tbody>
           @foreach($all_sales as $sales)
           <tr>
-            <td scope="row"><input name="check[]" type="checkbox"  value="{{ $sales->id }}"></td>
+            <td scope="row"><input class="sale-check"　name="check[]" type="checkbox"  value="{{ $sales->id }}"></td>
             <td scope="row">{{$sales->product_number}}</td>
             <td scope="row">{{$sales->sales_channel}}</td>
             <td scope="row">{{$sales->sales_date}}</td>
@@ -64,12 +67,12 @@ index
     </div>
     <div class="row">
       <div class="col-12">
-        <select onchange="determineDestination(this)" name="operation" class="form-control col-md-2 col-lg-2 col-sm-2 col-4 custom-select"  id="sale-operate-select">
+        <select onchange="getTargetSelect(this)" name="operation" class="form-control col-md-2 col-lg-2 col-sm-2 col-4 custom-select"  id="select">
           <option value="add">追加</option>
           <option value="update">更新</option>
           <option value="delete">削除</option>
         </select>
-        <input class="btn bg-lite-orange text-white" type="submit" name="confirm" id="button" value="確認"/>
+        <input onclick="salesFormValidation(select)" class="btn bg-lite-orange text-white" type="submit" name="confirm" id="sales-operate-button" value="確認"/>
       </div>
     </div>
   </div>
@@ -79,37 +82,59 @@ index
 @section('script')
 <script>
   const operationForm = document.getElementById('sale-operation-form');
-  const operateSelect = document.getElementById('sale-operate-select');
+  const operateSelect = document.getElementById('select');
+  const saleCheck = Array.from(document.getElementsByClassName('sale-check'));
 
-  // console.log(operateSelect);
-  // if (operateSelect.value === 'add') {
-  //     operationForm.method = 'GET'
-  //     operationForm.action = '/sale';
-  //     console.log(operateSelect.value);
-  //   } else if(operateSelect.value === 'update') {
-  //     operationForm.action = '/sale-update';
-  //     console.log(operateSelect.value);
-  //   } else {
-  //     operationForm.action = '/sale-delete';
-  //     console.log(operateSelect);
-  //   }
-  // console.log(operateSelect.selectedIndex);
-  const determineDestination = (targetSelectValue) => {
-    console.log(targetSelectValue.selectedIndex);
-    if (targetSelectValue.selectedIndex === 0) {
-      operationForm.method = 'GET'
-      operationForm.action = 'sale';
-      document.salesform.action = '/sale';
-      console.log(operateSelect.value);
-    } else if(targetSelectValue.selectedIndex === 1) {
-      operationForm.method = 'POST'
-      operationForm.action = 'sale-update';
-      console.log(operationForm.action);
-    } else {
-      operationForm.action = 'sale-delete';
-      console.log(operationForm.action);
+  // 更新 (ボタンを押す->selectの値が'update'->checkboxの数が0もしくは2以上ならアラートを出してリターンする。1ならそのまま送信)
+  // 削除 (ボタンを押す->selectの値が'delete'->checkboxの数が0ならアラートを出してリターンする。1以上ならそのまま送信)
+  // 
+
+  const countCheckUpdate = () => {
+    let count = 0;
+    for (let i = 0; i < saleCheck.length; i++) {
+      if (saleCheck[i].checked) {
+          count++;
+      }
+    }
+    if (count < 1 || count >= 2 ) {
+      alert('1度に操作できるデータは1つまでです')
+      return;
     }
   }
+
+  const countCheckDelete = () => {
+    if (saleCheck.length === 0) {
+      alert('最低でも1つはデータを選択してください')
+      return;
+    }
+  }
+  const salesOperateButton = document.getElementById('sales-operate-button');
+
+  console.log(saleCheck);
+  const getTargetSelect = (selectedValue) => {
+    if (selectedValue.selectedIndex === 0) {
+      saleCheck[1].disabled = true;
+    }
+  }
+
+  
+  
+  // const determineDestination = (targetSelectValue) => {
+  //   console.log(targetSelectValue.selectedIndex);
+  //   if (targetSelectValue.selectedIndex === 0) {
+  //     operationForm.method = 'GET'
+  //     operationForm.action = 'sale';
+  //     document.salesform.action = '/sale';
+  //     console.log(operateSelect.value);
+  //   } else if(targetSelectValue.selectedIndex === 1) {
+  //     operationForm.method = 'POST'
+  //     operationForm.action = 'sale-update';
+  //     console.log(operationForm.action);
+  //   } else {
+  //     operationForm.action = 'sale-delete';
+  //     console.log(operationForm.action);
+  //   }
+  // }
 
   // operateSelect.addEventListener('change', determineDestination);
 </script>

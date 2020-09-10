@@ -12,6 +12,7 @@ Vue.component('maintenance-component', require('./components/Maintenance.vue').d
 Vue.component('product-component', require('./components/Product.vue').default);
 Vue.component('analytics-component', require('./components/Analytics.vue').default);
 Vue.component('productmodal-component', require('./components/ProductModal.vue').default);
+Vue.component('sales-component', require('./components/Sales.vue').default);
 
 const app = new Vue({
     el: '#app',

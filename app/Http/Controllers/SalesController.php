@@ -130,8 +130,11 @@ class SalesController extends Controller
         $view->products = $all_product;
         $view->all_channel = $all_channel;
       } else if($request->operation === 'update') {
-        if (count($request->check) !== 1 ) {
-          $view = view('failure');
+        // dd($request->check);
+        if (!$request->check) {
+          return redirect('index')->with('alert', '最低1つのデータを選択してください');
+        } else if(count($request->check) >= 2 ){
+          return redirect('index')->with('alert', '1度に編集できるのは1つのデータだけです');
         } else {
           $view = view('sale_update');
           $all_sales = Sale::where('id', '=' , $request->check)->first();
@@ -153,7 +156,7 @@ class SalesController extends Controller
         }
       } else if ($request->operation === 'delete') {
         if (!$request->check) {
-          $view = view('failure');
+          return redirect('index')->with('alert', '最低1つのデータを選択してください');
         } else {
           // dd($request->check);
           $view = view('complete');
