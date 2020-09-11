@@ -39,12 +39,10 @@ export default {
   created() {
   },
   mounted() {
-    console.log(this.products);
   },
   methods:{
     passProductId(id) {
       this.productId = id;
-      console.log(this.productId);
     },
   }
 }

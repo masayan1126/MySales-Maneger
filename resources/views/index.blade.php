@@ -67,12 +67,12 @@ index
     </div>
     <div class="row">
       <div class="col-12">
-        <select onchange="getTargetSelect(this)" name="operation" class="form-control col-md-2 col-lg-2 col-sm-2 col-4 custom-select"  id="select">
+        <select name="operation" class="form-control col-md-2 col-lg-2 col-sm-2 col-4 custom-select"  id="select">
           <option value="add">追加</option>
           <option value="update">更新</option>
           <option value="delete">削除</option>
         </select>
-        <input onclick="salesFormValidation(select)" class="btn bg-lite-orange text-white" type="submit" name="confirm" id="sales-operate-button" value="確認"/>
+        <input class="btn bg-lite-orange text-white" type="submit" name="confirm" id="sales-operate-button" value="確認"/>
       </div>
     </div>
   </div>
@@ -110,7 +110,6 @@ index
   }
   const salesOperateButton = document.getElementById('sales-operate-button');
 
-  console.log(saleCheck);
   const getTargetSelect = (selectedValue) => {
     if (selectedValue.selectedIndex === 0) {
       saleCheck[1].disabled = true;

@@ -28,7 +28,6 @@ export default {
 },
   mounted() {
     this.renderChart(data, options)
-    console.log('Component mounted.')
   }
 }
 </script>

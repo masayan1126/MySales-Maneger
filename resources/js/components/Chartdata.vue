@@ -3,7 +3,10 @@ import { Line } from 'vue-chartjs';
 
 export default {
   extends: Line,
-  props: ['sales'],
+  props: [
+    'monthlySales',
+    'annualSales'
+  ],
   name: 'chartdata',
   data () {
     return {
@@ -14,7 +17,7 @@ export default {
             label: 'Line Dataset',
             data: [],
             borderColor: '#CFD8DC',
-            fill: false,
+            fill: true,
             type: 'line',
             lineTension: 0.3,
           }
@@ -41,17 +44,30 @@ export default {
     }
   },
   created() {
-    console.log(this.sales);
-    this.sales.forEach(data => {
-      this.data.labels.push(data.key);
-      // console.log(this.data.labels);
-      this.data.datasets[0].data.push(data.value);
-      // console.log(this.data.datasets[0].data);
-      // console.log(this.sales);
-    });
+
   },
   mounted () {
-    this.renderChart(this.data, this.options)
+    console.log(this.monthlySales.length === 0 );
+        // console.log(this.annualSales.length);
+    // console.log(this.monthlySales.length);
+    if (this.monthlySales.length === 0) {
+      console.log(this.annualSales);
+      this.annualSales.forEach(data => {
+        console.log(data);
+        this.data.labels.push(data.key);
+        this.data.datasets[0].data.push(data.value);
+      });
+    } else {
+     console.log(this.monthlySales);
+      this.monthlySales.forEach(data => {
+        this.data.labels.push(data.sales_date);
+        this.data.datasets[0].data.push(data.sales_amount);
+      });
+    }
+    // console.log(this.sales);
+    // setTimeout(() => {
+      this.renderChart(this.data, this.options)
+    // }, 1000);
 
   }
 }

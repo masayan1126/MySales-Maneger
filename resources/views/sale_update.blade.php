@@ -68,8 +68,6 @@ product
   const salesChannelSelection = document.getElementsByClassName('sales-channel-selection');
   const salesChannelSelectedOption = Array.from(salesChannelSelection[0]);
   const salesChannelSelectedOptionValue = Array.from(salesChannelSelection[0].value);
-  
-  console.log(Array.from(salesChannelSelection));
 
 </script>
 @endsection

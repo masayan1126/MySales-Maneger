@@ -94,7 +94,6 @@ product
 @section('script')
 <script type="text/javascript">
   const operateSelect = document.getElementById('product-operate-select');
-  console.log(operateSelect.value);
   const operationForm = document.getElementById('product-operation-form');
   if (operateSelect.value === "add") {
     operationForm.action = '/image_input';  
