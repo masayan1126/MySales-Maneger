@@ -1,5 +1,7 @@
 <template>
-  <Chartdata :annualSales="annualSalesArr" :monthlySales="monthlySalesArr"></Chartdata>
+  <div class="max-chart-size mx-auto">
+    <Chartdata :annualSales="annualSalesArr" :monthlySales="monthlySalesArr"></Chartdata>
+  </div>
 </template>
 
 <script>

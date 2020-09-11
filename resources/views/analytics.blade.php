@@ -6,7 +6,7 @@ anaylytics
 @section('content')
 <form action="/drawChart" method="GET" enctype="multipart/form-data" id="form">
       @csrf
-            <div class="form-group">
+            <div class="form-group max-width-600 mx-auto">
               <label for="sales-year-selection">売上月</label>
               <div class="row">
                 <div class="col-4">
@@ -29,8 +29,10 @@ anaylytics
                   <option value="{{ $unspecified }}">{{ $unspecified }}</option> 
                   </select>月
                 </div>
+                <div class="col-4">
+                  <input class="btn bg-lite-orange text-white" type="submit" name="confirm" id="button" value="表示する" />
+                </div> 
               </div> 
-              <input class="btn bg-lite-orange text-white mt-4" type="submit" name="confirm" id="button" value="表示する" />
             </div>
             </form>
 <analytics-component :sales="{{ $target_sales }}"></analytics-component>
