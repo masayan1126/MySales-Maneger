@@ -4,10 +4,6 @@
 product
 @endsection
 @section('content')
-  <h2 class="">Your Product</h2>
-@if ($product === null)
-  管理画面からあなたの商品を登録しましょう
-@else
-  <product-component :products="{{ $product }}"></product-component>
-@endif
+  <h2>Your Product</h2>
+  <product-component :products="{{ $all_products }}"></product-component>
 @endsection

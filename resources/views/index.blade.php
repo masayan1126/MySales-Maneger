@@ -17,12 +17,12 @@ index
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="/result" method="POST" class="form-horizontal">
+      <form action="/sales-result" method="POST" class="form-horizontal">
       <div class="modal-body">
         {{ csrf_field() }}
         @include('parts.select', ['$products' => '$products', '$all_channel' => '$all_channel'])
         <div class="modal-footer">
-          <button type="submit" class="btn btn-primary " name="filter">Save changes</button>
+          <button type="submit" class="btn btn-primary " name="filter">表示する</button>
         </div>
       </div>
       </form>
@@ -80,61 +80,4 @@ index
 </div>
 @endsection
 @section('script')
-<script>
-  const operationForm = document.getElementById('sale-operation-form');
-  const operateSelect = document.getElementById('select');
-  const saleCheck = Array.from(document.getElementsByClassName('sale-check'));
-
-  // 更新 (ボタンを押す->selectの値が'update'->checkboxの数が0もしくは2以上ならアラートを出してリターンする。1ならそのまま送信)
-  // 削除 (ボタンを押す->selectの値が'delete'->checkboxの数が0ならアラートを出してリターンする。1以上ならそのまま送信)
-  // 
-
-  const countCheckUpdate = () => {
-    let count = 0;
-    for (let i = 0; i < saleCheck.length; i++) {
-      if (saleCheck[i].checked) {
-          count++;
-      }
-    }
-    if (count < 1 || count >= 2 ) {
-      alert('1度に操作できるデータは1つまでです')
-      return;
-    }
-  }
-
-  const countCheckDelete = () => {
-    if (saleCheck.length === 0) {
-      alert('最低でも1つはデータを選択してください')
-      return;
-    }
-  }
-  const salesOperateButton = document.getElementById('sales-operate-button');
-
-  const getTargetSelect = (selectedValue) => {
-    if (selectedValue.selectedIndex === 0) {
-      saleCheck[1].disabled = true;
-    }
-  }
-
-  
-  
-  // const determineDestination = (targetSelectValue) => {
-  //   console.log(targetSelectValue.selectedIndex);
-  //   if (targetSelectValue.selectedIndex === 0) {
-  //     operationForm.method = 'GET'
-  //     operationForm.action = 'sale';
-  //     document.salesform.action = '/sale';
-  //     console.log(operateSelect.value);
-  //   } else if(targetSelectValue.selectedIndex === 1) {
-  //     operationForm.method = 'POST'
-  //     operationForm.action = 'sale-update';
-  //     console.log(operationForm.action);
-  //   } else {
-  //     operationForm.action = 'sale-delete';
-  //     console.log(operationForm.action);
-  //   }
-  // }
-
-  // operateSelect.addEventListener('change', determineDestination);
-</script>
 @endsection

@@ -4,6 +4,9 @@
 product
 @endsection
 @section('content')
+@if (session('alert'))
+<div class="alert alert-warning">{{ session('alert') }}</div>
+@endif
 <div id="maintenance-menu">
   <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item">
@@ -16,7 +19,7 @@ product
 
   <div class="mt-4 tab-content" id="myTabContent">
     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-    <form action="/operation-update" id="product-operation-form" name="operation-form" method="GET" class="form-horizontal w-100">
+    <form action="/allocateMaintenanceProductView" id="product-operation-form" name="operation-form" method="POST" class="form-horizontal w-100">
     <div class="form-group">
       {{ csrf_field() }}
       <div class="table-responsive">
@@ -53,7 +56,7 @@ product
     </div>
 
     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-    <form action="channel" id="channel-operation-form" name="operation-form" method="POST" class="form-horizontal w-100">
+    <form action="/allocate-maintenance-channel" id="channel-operation-form" name="operation-form" method="POST" class="form-horizontal w-100">
     <div class="form-group">
       {{ csrf_field() }}
       <div class="table-responsive">
@@ -67,7 +70,7 @@ product
           <tbody>
             @foreach($all_channel as $channel)
             <tr>
-              <td scope="row"><input name="check[]" type="checkbox" value="{{ $product->product_id }}"></td>
+              <td scope="row"><input name="check[]" type="checkbox" value="{{ $channel->id }}"></td>
               <td scope="row">{{$channel->sales_channel}}</td>
             </tr>
             @endforeach
@@ -92,15 +95,4 @@ product
 </div>
 @endsection
 @section('script')
-<script type="text/javascript">
-  const operateSelect = document.getElementById('product-operate-select');
-  const operationForm = document.getElementById('product-operation-form');
-  if (operateSelect.value === "add") {
-    operationForm.action = '/image_input';  
-  } else if(operateSelect.value === "update") {
-    operationForm.action = '/operation-update';  
-  }else if(operateSelect.value === "delete") {
-    operationForm.action = '/operation-delete';
-  }
-</script>
 @endsection

@@ -14,31 +14,45 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/','SalesController@entrance');
-Route::get('/index', 'SalesController@index');
-Route::get('/product', 'SalesController@showProduct');
-Route::get('/sale', 'SalesController@inputSale');
-Route::get('/card', 'SalesController@card');
-Route::get('/complete', 'SalesController@complete');
-Route::get('/failure', 'SalesController@complete');
-Route::post('/result', 'SalesController@filter');
-Route::post('/add', 'SalesController@store');
-Route::post('/delete', 'SalesController@delete');
-Route::get('/top','SalesController@top');
-Route::get('/maintenance','ImageController@getProductList');
-Route::get('/analytics','SalesController@firstdrawChart');
-Route::get('/drawChart','SalesController@drawChart');
-Route::get('/image_input', 'ImageController@getImageInput');
-Route::post('/image_confirm', 'ImageController@postImageConfirm');
-Route::post('/add-channel', 'SalesController@addChannel');
-Route::post('/update-product', 'SalesController@updateProduct');
-// Route::post('/sale-edit', 'SalesController@editSale');
-Route::post('/sale-update', 'SalesController@updateSale');
-Route::post('/allocate', 'SalesController@allocateView');
+// コントローラー
+// ProductController(商品関連)
+// SalesController(売上関連)
+// MainController(認証関連、その他)
+// ImageController(画像アップロード関連)
+
+// Route::get('/failure', 'SalesController@complete');
+// Route::get('/product', 'SalesController@showProduct');
+// Route::get('/card', 'SalesController@card');
+// Route::get('/top','SalesController@top');
+// Route::post('/delete', 'SalesController@delete');
+// Route::post('/product-complete', 'ProductController@postImageComplete');
+
+Route::get('/','MainController@entrance');
 Route::post('/channel', function(){
   return view('channel');
 });
-Route::post('/image_complete', 'ImageController@postImageComplete');
+
+Route::post('/allocate-maintenance-channel', 'MainController@allocateMaintenanceChannel');
+Route::post('/channel-add', 'MainController@store');
+Route::get('/channel-input', 'MainController@inputChannel');
+Route::post('/channel-update', 'MainController@updateChannel');
+Route::post('/complete', 'MainController@complete');
+
+Route::get('/sales-list', 'SalesController@index');
+Route::get('/sales-input', 'SalesController@inputSale');
+Route::post('/sales-add', 'SalesController@store');
+Route::post('/sales-update', 'SalesController@updateSale');
+Route::post('/allocate', 'SalesController@allocateView');
+Route::post('/sales-result', 'SalesController@filterSale');
+
+Route::get('/analytics','ChartController@firstdrawChart');
+Route::get('/drawChart','ChartController@drawChart');
+
+Route::get('/home', 'ProductController@showProduct');
+Route::get('/maintenance','ProductController@showProductList');
+Route::post('/allocateMaintenanceProductView', 'ProductController@allocateMaintenanceProductView');
+Route::get('/product-input', 'ProductController@inputProduct');
+Route::post('/product-confirm', 'ProductController@inputProductConfirm');
+Route::post('/product-update', 'ProductController@updateProduct');
 Auth::routes();
-Route::get('/home', 'SalesController@showProduct');
 Route::resource('/search', 'SearchController', ['only' => ['index']]);

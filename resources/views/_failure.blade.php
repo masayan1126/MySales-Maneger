@@ -9,7 +9,7 @@ complete
   <p class="lead">処理を正常に完了できませんでした。</p>
   <hr class="my-4">
     <div class="col-6">
-      <a class="d-block btn bg-lite-orange text-white" href="/index" role="button">一覧に戻る</a>
+      <a class="d-block btn bg-lite-orange text-white" href="/sales-list" role="button">一覧に戻る</a>
     </div>  
     <div class="col-6">  
       <a class="d-block btn bg-lite-green" href="/sale" role="button">続けて入力する</a>

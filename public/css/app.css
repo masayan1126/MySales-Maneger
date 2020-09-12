@@ -10953,6 +10953,11 @@ a.text-dark:focus {
   max-height: 600px !important;
 }
 
+.preview-image-size {
+  max-width: 200px !important;
+  max-height: 200px !important;
+}
+
 .max-width-300 {
   max-width: 300px;
 }
