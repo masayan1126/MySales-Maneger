@@ -2,8 +2,9 @@ require('./bootstrap');
 import Vue from 'vue';
 import Vuetify from 'vuetify';
 import 'vuetify/dist/vuetify.min.css';
+import Paginate from 'vuejs-paginate'
 Vue.use(Vuetify);
-
+Vue.component('paginate', Paginate)
 window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
