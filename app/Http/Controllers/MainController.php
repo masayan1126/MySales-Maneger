@@ -29,6 +29,7 @@ class MainController extends Controller
       public function store(Request $request){
         $channel = new Channel();
         $channel->sales_channel = $request->salesChannel;
+        $channel->channel_url = $request->channel_url;
         $channel->save();
         $view = view('complete');
         return $view;
@@ -49,7 +50,8 @@ class MainController extends Controller
           // dd($request->check);
           $view = view('channel_edit');
           $target_channel = Channel::where('id', '=' , $request->check)->first();
-          $view->target_channel = $target_channel->sales_channel;
+          $view->sales_channel = $target_channel->sales_channel;
+          $view->channel_url = $target_channel->channel_url;
           $view->id = $target_channel->id;
           // 以降はchannel_edit.blade.php -> form送信 -> updateChannel -> complete.blade.php
         }
@@ -70,6 +72,7 @@ class MainController extends Controller
     public function updateChannel(Request $request){
       $target_channel = Channel::where('id', '=' , $request->check)->first();
       $target_channel->sales_channel = $request->salesChannel;
+      $target_channel->channel_url = $request->channel_url;
       $target_channel->save();
       $view = view('complete');
       return $view;

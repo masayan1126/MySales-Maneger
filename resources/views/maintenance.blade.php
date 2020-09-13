@@ -27,14 +27,16 @@ product
           <thead class="thead-light">
             <tr>
               <th scope="col" class="text-nowrap">✔︎</th>
+              <th scope="col" class="text-nowrap">商品画像</th>
               <th scope="col" class="text-nowrap">商品名</th>
             </tr>
           </thead>
           <tbody>
             @foreach($all_products as $product)
             <tr>
-              <td scope="row"><input name="check[]" type="checkbox" value="{{ $product->product_id }}"></td>
-              <td scope="row">{{$product->product_name}}</td>
+              <td style="width:2%" scope="row"><input name="check[]" type="checkbox" value="{{ $product->product_id }}"></td>
+              <td style="width:5%" scope="row"><img class="w-100" src="{{ $product->path }}" alt=""></td>
+              <td style="width:20%" scope="row">{{$product->product_name}}</td>
             </tr>
             @endforeach
           </tbody>
@@ -65,6 +67,7 @@ product
             <tr>
               <th scope="col" class="text-nowrap">✔︎</th>
               <th scope="col" class="text-nowrap">販路</th>
+              <th scope="col" class="text-nowrap">URL</th>
             </tr>
           </thead>
           <tbody>
@@ -72,6 +75,7 @@ product
             <tr>
               <td scope="row"><input name="check[]" type="checkbox" value="{{ $channel->id }}"></td>
               <td scope="row">{{$channel->sales_channel}}</td>
+              <td scope="row">{{$channel->channel_url}}</td>
             </tr>
             @endforeach
           </tbody>

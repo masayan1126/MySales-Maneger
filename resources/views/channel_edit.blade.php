@@ -14,7 +14,9 @@ channel
       <div class="form-group">
         <input name="check[]" type="hidden" value="{{ $id }}">
         <label class="d-block p-1" for="salesChannel">販路：</label>
-        <input name="salesChannel" class="form-control col-4" id="sales-channel" value="{{ $target_channel }}">
+        <input name="salesChannel" class="form-control col-4" id="sales-channel" value="{{ $sales_channel }}">
+        <label class="d-block p-1" for="channel-url">販路のURLなど</label>
+        <input type="text" class="d-block p-1 mb-2 form-control" name="channel_url" id="channel-url" value="{{ $channel_url }}"/>
         <input class="d-block btn bg-lite-orange text-white mt-4" type="submit" name="confirm" id="button" value="確認" />
       </div>
       </form>

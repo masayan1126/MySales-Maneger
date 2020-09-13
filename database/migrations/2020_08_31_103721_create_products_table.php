@@ -17,6 +17,8 @@ class CreateProductsTable extends Migration
             $table->bigIncrements('product_id');
             $table->string('path');
             $table->string('product_name');
+            $table->integer('price');
+            $table->integer('stock_quantity');
             $table->timestamps();
         });
     }
