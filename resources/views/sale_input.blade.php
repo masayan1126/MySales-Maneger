@@ -53,7 +53,7 @@ sale
                 </div>
               </div>
             </div>
-            <button type="submit" class="btn bg-lite-orange text-white" name="add">追加する</button>
+            <button type="submit" class="btn bg-mauve shadow-sm text-white" name="add">追加する</button>
           </form>
         </div>
       </div>

@@ -4,6 +4,6 @@
 product
 @endsection
 @section('content')
-  <h2>Your Product</h2>
+  <h3 class="ml-3">商品一覧</h3>
   <product-component :products="{{ $all_products }}"></product-component>
 @endsection

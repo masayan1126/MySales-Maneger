@@ -20,7 +20,7 @@ product_input_confirm
         <option value="<?php echo $i;?>"><?php echo $i;?></option>
       <?php endfor;?>
     </select>
-    <input type="submit" class="btn bg-lite-orange text-white mt-4" name="action" value="完了" />
+    <input type="submit" class="btn bg-mauve shadow-sm text-white mt-4" name="action" value="完了" />
   </form>
 </div>
 @endsection

@@ -7,7 +7,7 @@ register
 <div class="row justify-content-center">
   <div class="col-12 col-sm-10 col-md-10 col-lg-6 col-xl-6">
     <div class="card">
-      <div class="card-header"><h4>{{ __('Register') }}</h4></div>
+      <div class="card-header"><h4>{{ __('アカウント登録') }}</h4></div>
         <div class="card-body">
         <form method="POST" action="{{ route('register') }}">
           @csrf
@@ -52,8 +52,8 @@ register
           </div>
           <div class="form-group row mb-0">
             <div class="col-md-6 offset-md-4">
-              <button type="submit" class="btn bg-lite-orange text-white">
-                {{ __('Register') }}
+              <button type="submit" class="bg-mauve shadow-sm btn text-white">
+                {{ __('登録する') }}
               </button>
             </div>
           </div>

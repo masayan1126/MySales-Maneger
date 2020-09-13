@@ -1,5 +1,5 @@
 <div id="menu" class="mb-4">
-  <nav class="navbar navbar-expand-md navbar-light bg-lite-blue shadow">
+  <nav class="navbar navbar-expand-md navbar-light bg-dark-bluish-gray shadow">
     <div class="container-fluid">
       <a class="navbar-brand text-white" href="{{ url('/') }}">{{ config('app.name') }}</a>
       <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

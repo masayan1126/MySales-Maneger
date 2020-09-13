@@ -42,7 +42,7 @@ index
     <div class="row">
       <div class="col-12">
       {{ csrf_field() }}
-        <input class="btn bg-lite-orange text-white" type="submit" name="confirm" id="button" value="全件表示"/>
+        <input class="btn bg-mauve shadow-sm text-white" type="submit" name="confirm" id="button" value="全件表示"/>
       </div>
     </div>
   </div>

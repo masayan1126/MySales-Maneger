@@ -56,7 +56,7 @@ product
             </div>
         <label class="d-block p-1" for="imagefile">売上：</label>
         <input class="d-block p-1 form-control" type="text"  name="salesAmount" size="50" value="{{$sales_amount}}"/>
-        <input class="btn bg-lite-orange text-white mt-4" type="submit" name="confirm" id="button" value="確認" />
+        <input class="btn bg-mauve shadow-sm text-white mt-4" type="submit" name="confirm" id="button" value="確認" />
       </div>
       </form>
     </div>

@@ -30,7 +30,7 @@ anaylytics
                   </select>月
                 </div>
                 <div class="col-4">
-                  <input class="btn bg-lite-orange text-white" type="submit" name="confirm" id="button" value="表示する" />
+                  <input class="btn bg-mauve shadow-sm text-white" type="submit" name="confirm" id="button" value="表示する" />
                 </div> 
               </div> 
             </div>

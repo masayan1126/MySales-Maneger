@@ -1,5 +1,15 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+// @import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700);
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
+
+body {
+  font-family: Lato, "Noto Sans JP", "游ゴシック Medium", "游ゴシック体", "Yu Gothic Medium", YuGothic, "ヒラギノ角ゴ ProN", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif !important;
+}
+
+input, button, select, optgroup, textarea {
+  font-family: Lato, "Noto Sans JP", "游ゴシック Medium", "游ゴシック体", "Yu Gothic Medium", YuGothic, "ヒラギノ角ゴ ProN", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif !important;
+}
 
 // Variables
 @import 'variables';
@@ -7,12 +17,33 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-.bg-lite-blue{
-  background-color:#7fbfff;
+.bg-mauve{
+  background-color:#E99787 !important;
 }
 
-.bg-lite-orange{
-  background-color:#ffbf7f !important;
+.bg-lagoon{
+  background-color:#5EA8A7 !important;
+}
+
+.text-warm-gray{
+  color:#A49592 !important;
+}
+
+.bg-whitewash{
+  background-color:#FFFFFF !important;
+}
+
+.bg-beige{
+  background-color:#EED8C9 !important;
+}
+
+.page-item.active .page-link {
+  background-color:#A49592 !important;
+  border-color:#A49592 !important;
+}
+
+.bg-dark-bluish-gray{
+  background-color:#727077 !important;
 }
 
 .bg-lite-green{
@@ -30,6 +61,11 @@
 .max-chart-size{
   max-width: 600px !important;
   max-height: 600px !important;
+}
+
+.max-product-img-size{
+  max-width: 350px !important;
+  max-height: 450px !important;
 }
 
 .preview-image-size {
@@ -55,6 +91,10 @@
 
 .height-40{
   height: 40px !important;
+}
+
+.min-height-700{
+  min-height: 700px !important;
 }
 
 .hide {

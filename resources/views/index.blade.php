@@ -1,7 +1,7 @@
 @include('layouts.menu')
 @extends('common.template')
 @section('title')
-index
+売上一覧
 @endsection
 @section('content')
 @if (session('alert'))
@@ -22,7 +22,7 @@ index
         {{ csrf_field() }}
         @include('parts.select', ['$products' => '$products', '$all_channel' => '$all_channel'])
         <div class="modal-footer">
-          <button type="submit" class="btn btn-primary " name="filter">表示する</button>
+          <button type="submit" class="btn bg-mauve shadow-sm text-white" name="filter">表示する</button>
         </div>
       </div>
       </form>
@@ -72,7 +72,7 @@ index
           <option value="update">更新</option>
           <option value="delete">削除</option>
         </select>
-        <input class="btn bg-lite-orange text-white" type="submit" name="confirm" id="sales-operate-button" value="確認"/>
+        <input class="btn bg-mauve shadow-sm text-white" type="submit" name="confirm" id="sales-operate-button" value="操作する"/>
       </div>
     </div>
   </div>

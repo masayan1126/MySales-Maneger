@@ -18,7 +18,7 @@ product
             <input type="text" class="d-block p-1 mb-2 form-control" name="salesChannel" id="channel" value=""/>
             <label class="d-block p-1" for="channel-url">販路のURLなど</label>
             <input type="text" class="d-block p-1 mb-2 form-control" name="channel_url" id="channel-url" value=""/>
-            <input class="btn bg-lite-orange text-white mt-4" type="submit" name="confirm" id="button" value="確認" />
+            <input class="btn bg-mauve shadow-sm text-white mt-4" type="submit" name="confirm" id="button" value="確認" />
       </div>
       </div>
       </div>

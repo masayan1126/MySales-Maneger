@@ -25,7 +25,7 @@ product_input
             <option value="<?php echo $i;?>"><?php echo $i;?></option>
           <?php endfor;?>
         </select>
-        <input class="btn bg-lite-orange text-white mt-4" type="submit" name="confirm" id="button" value="確認" />
+        <input class="btn bg-mauve shadow-sm text-white mt-4" type="submit" name="confirm" id="button" value="確認" />
       </div>
       </form>
     </div>

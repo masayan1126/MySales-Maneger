@@ -12,12 +12,13 @@ class SalesController extends Controller
 {
     public function index(){
       $view = view('index');
-      $all_sales = DB::table('sales')->get();
-      $all_product = DB::table('products')->get();
-      $all_channel = DB::table('channels')->get();
+      $all_sales = Sale::get();
+      $all_product = Product::get();
+      $all_channel = Channel::get();
       $view->all_sales = $all_sales;
       $view->all_channel = $all_channel;
       $view->products = $all_product;
+      // dd($all_sales);
       return $view;
     }
 
@@ -58,9 +59,9 @@ class SalesController extends Controller
         $view->products = $all_product;
       } else if($request->operation === 'update') {
         if (!$request->check) {
-          return redirect('index')->with('alert', '最低1つのデータを選択してください');
+          return redirect('sales-list')->with('alert', '最低1つのデータを選択してください');
         } else if(count($request->check) >= 2 ){
-          return redirect('index')->with('alert', '1度に編集できるのは1つのデータだけです');
+          return redirect('sales-list')->with('alert', '1度に編集できるのは1つのデータだけです');
         } else {
           $view = view('sale_edit');
           $target_sale = Sale::where('id', '=' , $request->check)->first();
@@ -81,7 +82,7 @@ class SalesController extends Controller
         }
       } else if ($request->operation === 'delete') {
         if (!$request->check) {
-          return redirect('index')->with('alert', '最低1つのデータを選択してください');
+          return redirect('sales-list')->with('alert', '最低1つのデータを選択してください');
         } else {
           $view = view('complete');
           for ($i = 0; $i < count($request->check); $i++) {

@@ -50,7 +50,7 @@ product
             <option value="update">更新</option>
             <option value="delete">削除</option>
           </select>
-          <input class="btn bg-lite-orange text-white" type="submit" name="confirm" id="button" value="確認" />
+          <input class="btn bg-mauve shadow-sm text-white" type="submit" name="confirm" id="button" value="確認" />
         </div>
       </div>
       </div>
@@ -89,7 +89,7 @@ product
             <option value="update">更新</option>
             <option value="delete">削除</option>
           </select>
-          <input class="btn bg-lite-orange text-white" type="submit" name="confirm" id="button" value="確認" />
+          <input class="btn bg-mauve shadow-sm text-white" type="submit" name="confirm" id="button" value="確認" />
         </div>
       </div>
       </div>
