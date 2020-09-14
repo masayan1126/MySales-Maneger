@@ -10977,6 +10977,10 @@ a.text-dark:focus {
   max-width: 500px !important;
 }
 
+.max-width-1400 {
+  max-width: 1400px !important;
+}
+
 .max-width-600 {
   max-width: 600px !important;
 }

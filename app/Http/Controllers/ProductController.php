@@ -8,6 +8,8 @@ use Storage;
 use App\Product;
 use App\Sale;
 use App\Channel;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {

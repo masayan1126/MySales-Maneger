@@ -1,7 +1,8 @@
 <template>
-<div class="">
-  <div class="mx-auto row min-height-700 justify-content-center justify-content-sm-start">
-    <div v-for="(item) in getItems" :key="item.product_id" class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12 max-product-img-size"> 
+<div class="max-width-1400 mx-auto">
+  <h3 class="ml-3">商品一覧</h3>
+  <div class="mx-auto row min-height-700 justify-content-center justify-content-sm-start max-width-1400">
+    <div v-for="(item) in getItems" :key="item.product_id" class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12 max-product-img-size"> 
       <div class="card h-100">
         <img class="card-img-top" :src="item.path" alt="スダンダードコースのイメージ画像">
         <div class="card-body">

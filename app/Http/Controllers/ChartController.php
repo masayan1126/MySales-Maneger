@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\DB;
 use App\Sale;
 use App\Channel;
 use App\Product;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 
@@ -16,7 +18,9 @@ class ChartController extends Controller
         $view = view('analytics');
         $view->salesYear = date('Y');
         $salesMonth = '未指定';
-        // $i = 1;
+        $active_user_membership_registration_date = Auth::user()->created_at;
+        list($yyyy, $mm, $dd) = explode('-', $active_user_membership_registration_date);
+        $view->membership_year = $yyyy;
         $default_count = 1;
         $view->default_count = $default_count;
         $view->salesMonth = $salesMonth;

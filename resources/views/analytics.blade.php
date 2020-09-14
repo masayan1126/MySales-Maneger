@@ -14,7 +14,7 @@ anaylytics
                     <!-- <option selected disabled value="未指定">未指定</option> -->
                     <option value="{{ $salesYear }}">{{ $salesYear }}</option>
                     <?php
-                      for($i = 2020; $i<= 2100; $i++):?>
+                      for($i = $membership_year; $i<= $membership_year+100; $i++):?>
                       <option value="<?php echo $i;?>"><?php echo $i;?></option>
                     <?php endfor;?>
                   </select>年

@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\DB;
 use App\Sale;
 use App\Channel;
 use App\Product;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class SalesController extends Controller
 {
@@ -57,6 +59,9 @@ class SalesController extends Controller
         $view = view('sale_input');
         $view->all_channel = $all_channel;
         $view->products = $all_product;
+        $active_user_membership_registration_date = Auth::user()->created_at;
+        list($yyyy, $mm, $dd) = explode('-', $active_user_membership_registration_date);
+        $view->membership_year = $yyyy;
       } else if($request->operation === 'update') {
         if (!$request->check) {
           return redirect('sales-list')->with('alert', '最低1つのデータを選択してください');
@@ -78,6 +83,9 @@ class SalesController extends Controller
           $else_channel = Channel::where('sales_channel', '!=' , $target_channel)->get();
           $view->target_channel = $target_channel;
           $view->else_channels = $else_channel;
+          $active_user_membership_registration_date = Auth::user()->created_at;
+          list($yyyy, $mm, $dd) = explode('-', $active_user_membership_registration_date);
+          $view->membership_year = $yyyy;
           // 以降はsale_edit.blade.php -> form送信 -> updateSale -> complete.blade.php
         }
       } else if ($request->operation === 'delete') {

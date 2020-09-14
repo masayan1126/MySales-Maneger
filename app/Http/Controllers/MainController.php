@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\DB;
 use App\Sale;
 use App\Channel;
 use App\Product;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class MainController extends Controller
 {
