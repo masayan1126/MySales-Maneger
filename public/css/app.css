@@ -10977,6 +10977,10 @@ a.text-dark:focus {
   max-width: 500px !important;
 }
 
+.w-90 {
+  width: 90%;
+}
+
 .max-width-1400 {
   max-width: 1400px !important;
 }
@@ -11030,5 +11034,10 @@ a.text-dark:focus {
 
 .show {
   display: block;
+}
+
+.stripe-button-el {
+  background-color: #A49592 !important;
+  border-color: #A49592 !important;
 }
 

@@ -44,8 +44,18 @@ Route::post('/sales-update', 'SalesController@updateSale');
 Route::post('/allocate', 'SalesController@allocateView');
 Route::post('/sales-result', 'SalesController@filterSale');
 
+Route::get('/cart', 'CartController@addCart');
+Route::get('/cart-list', 'CartController@showCart');
+Route::post('/item-remove', 'CartController@removeItem');
+Route::post('/order-confirm', 'CartController@orderConfirm');
+Route::post('/order-complete', 'CartController@orderComplete');
+
 Route::get('/analytics','ChartController@firstdrawChart');
 Route::get('/drawChart','ChartController@drawChart');
+Route::get('/test', function(){
+  return view('test');
+});
 
 Auth::routes();
 Route::resource('/search', 'SearchController', ['only' => ['index']]);
+Route::post('/pay', 'PaymentController@pay');

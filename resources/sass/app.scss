@@ -54,6 +54,10 @@ input, button, select, optgroup, textarea {
   max-width: 500px !important;
 }
 
+.w-90 {
+  width: 90%;
+}
+
 .max-width-1400{
   max-width: 1400px !important;
 }
@@ -107,4 +111,9 @@ input, button, select, optgroup, textarea {
 
 .show {
   display: block;
+}
+
+.stripe-button-el {
+  background-color:#A49592 !important;
+  border-color:#A49592 !important;
 }

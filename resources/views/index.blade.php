@@ -7,7 +7,6 @@
 @if (session('alert'))
 <div class="alert alert-warning">{{ session('alert') }}</div>
 @endif
-<h3>売上一覧</h3>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -31,7 +30,8 @@
 </div>
 <!-- モーダルここまで -->
 
-<div class="row mx-auto">
+<div class="row mx-auto w-90">
+  <h3>売上一覧</h3>
   <form action="/allocate" name="salesform" id="sale-operation-form" method="POST" class="form-horizontal w-100">
   <div class="form-group">
     {{ csrf_field() }}
@@ -80,4 +80,18 @@
 </div>
 @endsection
 @section('script')
+<!-- <form action="{{ asset('pay') }}" method="POST">
+    {{ csrf_field() }}
+ <script
+     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+     data-key="{{ env('STRIPE_KEY') }}"
+     data-amount="100"
+     data-name="Stripe決済デモ"
+     data-label="決済をする"
+     data-description="これはデモ決済です"
+     data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+     data-locale="auto"
+     data-currency="JPY">
+ </script>
+</form> -->
 @endsection

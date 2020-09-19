@@ -31,6 +31,8 @@
               <a class="dropdown-item" href="{{ url('/home') }}">商品一覧</a>
               <a class="dropdown-item" href="{{ url('/sales-list') }}">売上一覧</a>
               <a class="dropdown-item" href="{{ url('/analytics') }}">売上分析</a>
+              <a class="dropdown-item" href="{{ url('/cart-list') }}">カート</a>
+              <a class="dropdown-item" href="{{ url('/cart-list') }}">注文内容</a>
               <a class="dropdown-item" href="{{ url('/maintenance') }}">メンテナンス</a>
               <form class="text-white" id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf

@@ -7,7 +7,7 @@ product
 @if (session('alert'))
 <div class="alert alert-warning">{{ session('alert') }}</div>
 @endif
-<div id="maintenance-menu">
+<div id="maintenance-menu" class="mx-auto w-90">
   <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item">
       <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">商品一覧</a>
