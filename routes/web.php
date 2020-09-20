@@ -59,3 +59,8 @@ Route::get('/test', function(){
 Auth::routes();
 Route::resource('/search', 'SearchController', ['only' => ['index']]);
 Route::post('/pay', 'PaymentController@pay');
+
+Route::middleware(['auth','can:isAdmin'])->group(function(){
+  Route::get('/admin','AdminController@index');
+});
+

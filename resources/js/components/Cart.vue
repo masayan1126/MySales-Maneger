@@ -3,7 +3,6 @@
 <input type="hidden" name="_token" :value="csrf">
 <div class="max-width-1400 mx-auto">
     <h3 class="">カート</h3>
-    <p class="text-right">総計：{{ totalPrice }}円</p>
   <div class="mx-auto row justify-content-center justify-content-sm-start max-width-1400">
     <table class="table table-striped table-dark">
 			<thead>
@@ -66,24 +65,20 @@ export default {
     }
   },
   created() {
-    console.log(this.cart)
   },
   mounted() {
   },
   methods:{
-    makeAction (event) {
-      console.log(event);
-    },
   },
   computed: {
-    totalPrice() {
-      const priceArray = this.cart.map(item =>item.price);
-      const sum = priceArray.reduce((a,x) => {
-        return a + x;
-      });
-      console.log(sum);
-      return sum;
-    },
+    // totalPrice() {
+    //   const priceArray = this.cart.map(item =>item.price);
+    //   const sum = priceArray.reduce((a,x) => {
+    //     return a + x;
+    //   });
+    //   console.log(sum);
+    //   return sum;
+    // },
   }
 }
 </script>

@@ -10,25 +10,18 @@ use App\Product;
 use App\User;
 use App\Cart;
 use Illuminate\Support\Facades\Auth;
+use Session;
 
 class CartController extends Controller
 {
     //
-      public function inputChannel(Request $request){
-        $all_products = Product::get();
-        $all_channel = Channel::get();
-        $view = view('maintenance');
-        $view->all_channel = $all_channel;
-        $view->all_products = $all_product;
-        return $view;
-      }
-
       public function addCart(Request $request){
         $cart = new Cart();
         $cart->product_name = $request->product_name;
         $cart->price = $request->price;
         $cart->purchase_number = $request->purchase_number;
         $cart->path = $request->path;
+        $cart->user_id = Auth::id();
         $cart->save();
         $cart = Cart::get();
         $view = view('cart');
@@ -37,10 +30,16 @@ class CartController extends Controller
       }
 
       public function showCart(Request $request){
-        $cart = Cart::get();
+        $my_cart = Cart::where('user_id', '=' ,Auth::id())->get();
         $view = view('cart');
-        $view->cart = $cart;
-        return $view;
+        $view->cart = $my_cart;
+        // dd(count($my_cart));
+        if (count($my_cart) === 0) {
+          Session::put('message', 'カートは空です');
+          return $view;
+        } else {
+          return $view;
+        }
       }
 
       public function removeItem(Request $request){
@@ -80,51 +79,6 @@ class CartController extends Controller
         return $view;
         // return redirect()->to('/complete');
       }
-
-      
-
-    public function allocateMaintenanceChannel(Request $request){
-      $all_sales = Sale::get();
-      $all_product = Product::get();
-      $all_channel = Channel::get();
-      if ($request->operation === 'add') {
-        $view = view('channel_input');
-      } else if($request->operation === 'update') {
-        if (!$request->check) {
-          return redirect('maintenance')->with('alert', '最低1つのデータを選択してください');
-        } else if(count($request->check) >= 2 ){
-          return redirect('maintenance')->with('alert', '1度に編集できるのは1つのデータだけです');
-        } else {
-          // dd($request->check);
-          $view = view('channel_edit');
-          $target_channel = Channel::where('id', '=' , $request->check)->first();
-          $view->sales_channel = $target_channel->sales_channel;
-          $view->channel_url = $target_channel->channel_url;
-          $view->id = $target_channel->id;
-          // 以降はchannel_edit.blade.php -> form送信 -> updateChannel -> complete.blade.php
-        }
-      } else if ($request->operation === 'delete') {
-        if (!$request->check) {
-          return redirect('maintenance')->with('alert', '最低1つのデータを選択してください');
-        } else {
-          $view = view('complete');
-          for ($i = 0; $i < count($request->check); $i++) {
-            $delete_sales = Channel::where('id', '=' , $request->check[$i])
-            ->delete();
-          }
-        }
-      }
-      return $view;
-    }
-
-    public function updateChannel(Request $request){
-      $target_channel = Channel::where('id', '=' , $request->check)->first();
-      $target_channel->sales_channel = $request->salesChannel;
-      $target_channel->channel_url = $request->channel_url;
-      $target_channel->save();
-      $view = view('complete');
-      return $view;
-    }
 
     // 作成予定(完了画面は全てview('complete')へ遷移させ、vueコンポーネントで動的に文言を表示させる)
     public function complete(Request $request){

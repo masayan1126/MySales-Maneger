@@ -4,7 +4,7 @@
 product
 @endsection
 @section('content')
-@if (session('message'))
+@if (Session::has('message'))
 <div class="alert alert-primary">{{ session('message') }}</div>
 @endif
 <cart-component :cart="{{ $cart }}"></cart-component>
