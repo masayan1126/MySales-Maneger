@@ -9,7 +9,8 @@ order
 @endsection
 @section('script')
 <form class="text-right mr-3" action="{{ asset('pay') }}" method="POST">
-    {{ csrf_field() }}
+  @csrf  
+    <input type="hidden" name="order" value="{{ $order }}">
     <input type="hidden" name="total_price" value="{{ $total_price }}">
  <script
     src="https://checkout.stripe.com/checkout.js" class="stripe-button"

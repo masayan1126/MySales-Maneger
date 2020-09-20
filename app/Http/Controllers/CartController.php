@@ -57,14 +57,13 @@ class CartController extends Controller
         // dd($request->check);
         // $delete_item = Cart::where('id', '=' , $request->check);
         // $delete_item->delete();
-        $cart = Cart::get();
+        $my_cart = Cart::where('user_id', '=' ,Auth::id())->get();
         // dd(SUM(Cart::get(array('price'))));
-        $total_price = $cart->sum('price');
+        $total_price = $my_cart->sum('price');
         // return redirect()->to('/complete');
         $view = view('order');
-        $view->order = $cart;
+        $view->order = $my_cart;
         $view->total_price = $total_price;
-        // dd($tortal_price);
         return $view;
       }
 

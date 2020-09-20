@@ -64,3 +64,6 @@ Route::middleware(['auth','can:isAdmin'])->group(function(){
   Route::get('/admin','AdminController@index');
 });
 
+Route::get('/order-list', 'OrderController@showOrder');
+Route::post('/shipping', 'OrderController@shipping');
+

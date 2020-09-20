@@ -17,6 +17,7 @@ Vue.component('sales-component', require('./components/Sales.vue').default);
 Vue.component('imagepreview-component', require('./components/ImagePreview.vue').default);
 Vue.component('cart-component', require('./components/Cart.vue').default);
 Vue.component('order-component', require('./components/Order.vue').default);
+Vue.component('receivedorder-component', require('./components/ReceivedOrder.vue').default);
 
 const app = new Vue({
     el: '#app',
