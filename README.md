@@ -1,9 +1,9 @@
 # EC-MANAGER
 【English】
-- This is an EC site sales management app
+- This is an EC site and sales management app
 
 【日本語】
-- これはECサイトの売上管理アプリです
+- これはECサイト兼売上管理アプリです
 
 # Features
 【English】
