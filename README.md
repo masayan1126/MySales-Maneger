@@ -1,80 +1,95 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+# EC-MANAGER
+【English】
+- This is an EC site sales management app
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+【日本語】
+- これはECサイトの売上管理アプリです
 
-## About Laravel
+# Features
+【English】
+- You can check your product on the product list screen. In addition, you can easily register new products from the maintenance screen
+- Buyers can add products to the cart and complete orders with simple operations
+- Shop operators can easily record sales data (product name, sales channel, sales date, sales amount) from the sales list menu
+- It ’s the best feature. You can display your sales data as an annual or monthly chart, which contributes to sales improvement
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+【日本語】
+- あなたの商品を商品一覧画面で確認できます。また、メンテナンス画面から新商品を簡単に登録可能です。
+- 購入者は簡単な操作のみでカートへの商品追加〜注文完了が可能です。
+- ショップ運営者は、売上一覧メニューから、売上データ(商品名、販路、売上日、売上金額)を簡単に記録できます。
+- あなたの売上データを年間もしくは月間のチャートとして表示でき、売上向上に貢献します
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+# Requirement
+- php 7.2.5
+- Laravel Framework 7.20.0
+- vue/cli 4.4.1
+- laravel/cashier 12.3
+- laravel/framework 7.0
+- laravel/tinker 2.0
+- laravel/ui 2.2
+- bootstrap" 4.0.0
+- fontawesome 5.13.0
+- fortawesome/fontawesome-free 5.14.0
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+# Installation
+```
+git clone https://github.com/masayan1126/EC-MANAGER.git
+```
+```
+cd EC-MANAGER
+```
+```
+composer install
+```
+```
+composer dump-autoload
+```
+```
+cp .env.example .env
+```
+```
+php artisan key:generate
+```
+The application can then be accessed at http://127.0.0.1:8000.
 
-## Learning Laravel
+# Usage
+【English】
+- Sellers
+  - First, log in
+    - If you do not have an account, please register as a member
+  - Various functions are available from the navigation menu
+    - You can check the products on sale from the product list menu
+    - From the sales list menu, you can register / edit / delete and
+      browse the sales data so far.
+    - You can view the monthly / yearly sales chart from the sales analysis menu
+    - From the order details menu, you can view the purchase details from the buyer and manage the progress of shipping
+    - You can manage your products and sales channels from the maintenance menu
+- Buyers
+  - First, log in
+    - If you do not have an account, please register as a member
+  - Only product purchase operations are possible
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+【日本語】
+- 販売者
+  - まず、ログインします
+    - アカウントをお持ちでない場合は、会員登録してください
+  - ナビゲーションメニューからさまざまな機能を使用できます
+    - 商品一覧メニューから、販売中の商品が確認できます
+    - 売上一覧メニューから、これまでの売上データの登録/編集/削除、閲覧ができます
+    - 売上分析メニューから、月毎/年毎の売上チャートを表示することができます
+    - 注文内容メニューから、購入者からの購入内容を表示し、発送の進捗を管理できます
+    - メンテナンスメニューから、あなたの商品、販売経路の管理ができます
+- 購入者
+  - まず、ログインします
+    - アカウントをお持ちでない場合は、会員登録してください
+  - 商品の購入操作のみ可能です
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- Demo user
+  - name:matsushin
+  - mail:matsushin@gmail.com
+  - password:matsushin1126
 
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
-- [云软科技](http://www.yunruan.ltd/)
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+# Author
+- name
+  - @masayan1126
+- email
+  - masa199311266@gmail.com
