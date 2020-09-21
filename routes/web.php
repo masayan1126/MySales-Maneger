@@ -35,7 +35,7 @@ Route::post('/allocate-maintenance-channel', 'MainController@allocateMaintenance
 Route::post('/channel-add', 'MainController@store');
 Route::get('/channel-input', 'MainController@inputChannel');
 Route::post('/channel-update', 'MainController@updateChannel');
-Route::get('/complete', 'MainController@complete');
+Route::post('/complete', 'MainController@complete');
 
 Route::get('/sales-list', 'SalesController@index');
 Route::get('/sales-input', 'SalesController@inputSale');
@@ -52,17 +52,9 @@ Route::post('/order-complete', 'CartController@orderComplete');
 
 Route::get('/analytics','ChartController@firstdrawChart');
 Route::get('/drawChart','ChartController@drawChart');
-Route::get('/test', function(){
-  return view('test');
-});
 
 Auth::routes();
-Route::resource('/search', 'SearchController', ['only' => ['index']]);
 Route::post('/pay', 'PaymentController@pay');
-
-Route::middleware(['auth','can:isAdmin'])->group(function(){
-  Route::get('/admin','AdminController@index');
-});
 
 Route::get('/order-list', 'OrderController@showOrder');
 Route::post('/shipping', 'OrderController@shipping');

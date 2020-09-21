@@ -45,11 +45,7 @@ login
               <button type="submit" class="bg-mauve shadow-sm btn text-white">
                 {{ __('ログイン') }}
               </button>
-              @if (Route::has('password.request'))
-                <a class="text-warm-gray btn btn-link" href="{{ route('password.request') }}">
-                  {{ __('Forgot Your Password?') }}
-                </a>
-              @endif
+                <span onclick="demoLogin()" class="text-warm-gray ml-3">デモユーザーでログイン</span>
             </div>
           </div>
           </form>
@@ -58,4 +54,15 @@ login
     </div>
   </div>
 </div>
+@endsection
+@section('script')
+<script>
+  // const demoLogin = document.getElementById('demo-login');
+  const demoLogin = function() {
+    const email = document.getElementById('email');
+    const password = document.getElementById('password');
+    email.value = 'masa199311266@gmail.com'
+    password.value = 'masa19931126'
+  }
+</script>
 @endsection
