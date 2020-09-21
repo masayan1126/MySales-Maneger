@@ -18,6 +18,7 @@ class CreateCartsTable extends Migration
             $table->string('product_name');
             $table->integer('price');
             $table->integer('purchase_number');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }

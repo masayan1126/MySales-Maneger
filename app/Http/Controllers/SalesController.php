@@ -39,7 +39,6 @@ class SalesController extends Controller
     $sale->sales_date = "{$request->salesYear}-{$request->salesMonth}-{$request->salesDay}";
     $sale->sales_amount = $request->salesAmount;
     $sale->sales_channel = $request->salesChannel;
-    $sale->user_id = Auth::id();
     $sale->save();
     $action = '/sales-list';
     $view = view('complete',compact('action'));
@@ -103,7 +102,6 @@ class SalesController extends Controller
     $target_sale->sales_channel = $request->salesChannel;
     $target_sale->sales_date = "{$request->salesYear}/{$request->salesMonth}/{$request->salesDay}";
     $target_sale->sales_amount = $request->salesAmount;
-    $target_sale->user_id = Auth::id();
     $target_sale->save();
     $action = '/sales-list';
     $view = view('complete',compact('action'));

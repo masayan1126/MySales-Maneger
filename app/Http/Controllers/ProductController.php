@@ -76,7 +76,6 @@ class ProductController extends Controller
     $product->product_name = $request->product_name;
     $product->price = $request->price;
     $product->stock_quantity = $request->stock_quantity;
-    $product->user_id = Auth::id();
     $product->save();
     $action = '/maintenance';
     $view = view('complete',compact('action'));

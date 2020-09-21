@@ -30,7 +30,6 @@ class MainController extends Controller
     $channel = new Channel();
     $channel->sales_channel = $request->salesChannel;
     $channel->channel_url = $request->channel_url;
-    $channel->user_id = Auth::id();
     $channel->save();
     $action = '/maintenance';
     $view = view('complete',compact('action'));
