@@ -4,7 +4,6 @@
 @section('title')
 product
 @endsection
-
 @section('content')
 <div class="jumbotron mt-4 w-100 card mx-auto max-width-500 pt-3">
   <h2 class="mb-3 mt-3 border-bottom">登録完了</h2>

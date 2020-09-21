@@ -1,14 +1,14 @@
 @include('layouts.menu')
 @extends('common.template')
 @section('title')
-index
+result
 @endsection
 @section('content')
 <h3>売上一覧</h3>
 <div class="row mx-auto">
   <form action="/sales-list" id="sale-operation-form" method="GET" class="form-horizontal w-100">
   <div class="form-group">
-    {{ csrf_field() }}
+  {{ csrf_field() }}
     <div class="table-responsive">
       <table class="table table-sm table-responsive-sm table-bordered">
         <thead class="thead-light">

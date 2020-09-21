@@ -13,7 +13,6 @@ product
       <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">販路一覧</a>
     </li>
   </ul>
-
   <div class="mt-4 tab-content" id="myTabContent">
     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
     <form action="/allocateMaintenanceProductView" id="product-operation-form" name="operation-form" method="POST" class="form-horizontal w-100">
@@ -94,6 +93,4 @@ product
     </div>
   </div>
 </div>
-@endsection
-@section('script')
 @endsection

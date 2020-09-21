@@ -18,8 +18,8 @@
         </div>
       </div>
       <div class="modal-footer p-2">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <input type="submit" class="btn btn-primary" value="カートに追加" >
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+        <input type="submit" class="btn bg-mauve shadow-sm text-white" value="カートに追加" >
       </div>
     </div>
   </div>

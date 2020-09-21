@@ -57,7 +57,6 @@ login
 @endsection
 @section('script')
 <script>
-  // const demoLogin = document.getElementById('demo-login');
   const demoLogin = function() {
     const email = document.getElementById('email');
     const password = document.getElementById('password');

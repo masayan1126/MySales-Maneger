@@ -48,13 +48,6 @@
 <script>
 export default {
     props: ['sales'],
-    // numberOfProducts: null,
-    // created() {
-    //   this.numberOfProducts = this.$props.product.length;
-    // },
-    // mounted() {
-    //   console.log(this.numberOfProducts)
-  // }
     data(){
       return {
         

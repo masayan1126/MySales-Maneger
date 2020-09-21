@@ -4,5 +4,5 @@
 order
 @endsection
 @section('content')
-  <receivedorder-component :order="{{ $received_order }}"></receivedorder-component>
+<receivedorder-component :order="{{ $received_order }}"></receivedorder-component>
 @endsection

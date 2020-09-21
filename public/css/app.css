@@ -10941,6 +10941,7 @@ a.text-dark:focus {
 }
 
 .bg-mauve {
+  font-weight: bold;
   background-color: #E99787 !important;
 }
 
@@ -10958,6 +10959,12 @@ a.text-dark:focus {
 
 .bg-beige {
   background-color: #EED8C9 !important;
+}
+
+button.stripe-button-el,
+button.stripe-button-el > span {
+  background-color: #E99787;
+  background-image: none;
 }
 
 .page-item.active .page-link {

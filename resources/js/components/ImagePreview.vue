@@ -18,7 +18,6 @@ export default {
     }
   },
   mounted () {
-    console.log(this.nowFilePath);
     this.imageData = this.nowFilePath;
   },
   methods: {

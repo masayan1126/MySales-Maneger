@@ -14,7 +14,7 @@ export default {
         labels: [],
         datasets: [
           {
-            label: 'Line Dataset',
+            label: '売上チャート',
             data: [],
             borderColor: '#CFD8DC',
             fill: true,
@@ -28,10 +28,13 @@ export default {
           xAxes: [{
             scaleLabel: {
               display: true,
-              labelString: 'Month'
+              labelString: ''
             }
           }],
           yAxes: [{
+            scaleLabel: {
+              labelString: '売上'
+            },
             ticks: {
               beginAtZero: true,
               stepSize: 1000,
@@ -44,30 +47,22 @@ export default {
     }
   },
   created() {
-
   },
   mounted () {
-    console.log(this.monthlySales.length === 0 );
-        // console.log(this.annualSales.length);
-    // console.log(this.monthlySales.length);
     if (this.monthlySales.length === 0) {
-      console.log(this.annualSales);
       this.annualSales.forEach(data => {
-        console.log(data);
         this.data.labels.push(data.key);
         this.data.datasets[0].data.push(data.value);
       });
+      this.options.scales.xAxes[0].scaleLabel.labelString = '月'
     } else {
-     console.log(this.monthlySales);
       this.monthlySales.forEach(data => {
         this.data.labels.push(data.sales_date);
         this.data.datasets[0].data.push(data.sales_amount);
       });
+      this.options.scales.xAxes[0].scaleLabel.labelString = '日'
     }
-    // console.log(this.sales);
-    // setTimeout(() => {
       this.renderChart(this.data, this.options)
-    // }, 1000);
 
   }
 }

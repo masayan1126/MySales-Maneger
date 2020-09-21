@@ -31,26 +31,7 @@
         </tr>
       </tbody>
     </table>
-
   </div>
-<!-- 　<div class="mx-auto w-75 height-40 mt-3"> -->
-    <!-- <paginate class="mx-auto justify-content-center"
-      :page-count="getPageCount"
-      :page-range="4"
-      :margin-pages="2"
-      :click-handler="clickCallback"
-      :prev-text="'<'"
-      :page-link-class="'page-link'"
-      :prev-link-class="'page-link'"
-      :next-text="'>'"
-      :next-class="'page-item'"
-      :next-link-class="'page-link'"
-      :prev-class="'page-item'"
-      :container-class="'pagination'"
-      :page-class="'page-item'">
-      :clickHandler="clickCallback">
-    </paginate>
-  </div> -->
 </div>
 <button type="submit" class="btn bg-mauve shadow-sm text-white">注文画面へ</button>
 </form>
@@ -71,14 +52,6 @@ export default {
   methods:{
   },
   computed: {
-    // totalPrice() {
-    //   const priceArray = this.cart.map(item =>item.price);
-    //   const sum = priceArray.reduce((a,x) => {
-    //     return a + x;
-    //   });
-    //   console.log(sum);
-    //   return sum;
-    // },
   }
 }
 </script>

@@ -6,7 +6,6 @@
 
 <script>
 import Chartdata from './Chartdata';
-// import { Line } from 'vue-chartjs';
 
 export default {
   props: ['sales'],
@@ -20,23 +19,6 @@ export default {
     }
   },
   created () {
-    // console.log(Object.entries(this.chardDataArr));
-    // if (Array.isArray(this.sales)) {
-      //   console.log('配列です');
-    //   this.sales.forEach(data => {
-      //     this.chardDataArr.push(data);
-    //   });
-    // } else {
-      //   const keyArr = Object.keys(this.sales);
-    //   const valueArr = Object.values(this.sales);
-    //   for(let i = 0; i == keyArr.length; i += 1) {
-      //     const obj = { 
-        //       targetDate:keyArr[i],
-    //       targetSale:valueArr[i],
-    //     }
-    //     this.chardDataArr.push(obj);
-    //   }
-    // } 
     if (Array.isArray(this.sales)) {
       this.sales.forEach(data => {
         this.monthlySalesArr.push(data);
@@ -46,10 +28,23 @@ export default {
       newArr.forEach(data => {
         this.annualSalesArr.push(data);
       });
+      this.annualSalesArr.sort(function(a, b) {
+        if (a.key > b.key) {
+          return 1;
+        } else {
+          return -1;
+        }
+      })
     }
   },
   mounted() {
+    console.log(this.monthlySalesArr);
   },
+  methods :{
+    compareFunc(a, b) {
+      return a - b;
+    }
+  }
 }
 </script>
 

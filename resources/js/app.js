@@ -8,7 +8,6 @@ Vue.component('paginate', Paginate)
 window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-// Vue.component('card-component', require('./components/Card.vue').default);
 Vue.component('maintenance-component', require('./components/Maintenance.vue').default);
 Vue.component('product-component', require('./components/Product.vue').default);
 Vue.component('analytics-component', require('./components/Analytics.vue').default);

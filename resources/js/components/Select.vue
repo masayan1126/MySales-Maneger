@@ -41,22 +41,6 @@
         </div>
       </div>
     </div>
-    <!-- <div class="form-group">
-      <label for="product-color-selection">商品カラー</label>
-      <select name="productColor" class="form-control col-4" id="product-color-selection">
-        <option value="ゴールド">ゴールド</option>
-        <option value="ブラック">ブラック</option>
-        <option value="ブラウン">ブラウン</option>
-        <option value="グリーン">グリーン</option>
-        <option value="カーキ">カーキ</option>
-        <option value="ピーチ">ピーチ</option>
-        <option value="オレンジ">オレンジ</option>
-        <option value="レッド">レッド</option>
-        <option value="ブルー">ブルー</option>
-        <option value="パープル">パープル</option>
-        <option value="グレー">グレー</option>
-      </select>
-    </div> -->
   </div>
 </template>
 
@@ -64,12 +48,5 @@
 export default {
     name: 'select-component',
     props: ['products'],
-    // numberOfProducts: null,
-    // created() {
-    //   this.numberOfProducts = this.$props.product.length;
-    // },
-    // mounted() {
-    //   console.log(this.numberOfProducts)
-  // }
 }
 </script>
