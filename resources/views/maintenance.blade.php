@@ -4,9 +4,6 @@
 product
 @endsection
 @section('content')
-@if (session('alert'))
-<div class="alert alert-warning">{{ session('alert') }}</div>
-@endif
 <div id="maintenance-menu" class="mx-auto w-90">
   <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item">

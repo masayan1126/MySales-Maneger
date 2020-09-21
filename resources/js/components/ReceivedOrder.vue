@@ -30,7 +30,8 @@
             <form action="/shipping" method="POST">
               <input type="hidden" name="_token" :value="csrf">
               <input type="hidden" name="check" :value="item.order_number">
-              <button type="submit" class="btn btn-primary shadow-sm">発送する</button>
+              <button v-if="item.shipping === 0" type="submit" name="shipping" class="btn btn-primary shadow-sm">発送する</button>
+              <button v-else type="submit" name="shipment_cancellation" class="btn btn-primary shadow-sm">取り消し</button>
             </form>
           </td>
         </tr>

@@ -46,8 +46,10 @@ class SalesController extends Controller
       $sale->sales_date = "{$request->salesYear}/{$request->salesMonth}/{$request->salesDay}";
       $sale->sales_amount = $request->salesAmount;
       $sale->sales_channel = $request->salesChannel;
+      $sale->user_id = Auth::id();
       $sale->save();
-      $view = view('complete');
+      $action = '/sales-list';
+      $view = view('complete',compact('action'));
       return $view;
     }
 
@@ -92,7 +94,8 @@ class SalesController extends Controller
         if (!$request->check) {
           return redirect('sales-list')->with('alert', '最低1つのデータを選択してください');
         } else {
-          $view = view('complete');
+          $action = '/sales-list';
+          $view = view('complete',compact('action'));
           for ($i = 0; $i < count($request->check); $i++) {
             $delete_sales = Sale::where('id', '=' , $request->check[$i])
             ->delete();
@@ -108,8 +111,10 @@ class SalesController extends Controller
       $target_sale->sales_channel = $request->salesChannel;
       $target_sale->sales_date = "{$request->salesYear}/{$request->salesMonth}/{$request->salesDay}";
       $target_sale->sales_amount = $request->salesAmount;
+      $target_sale->user_id = Auth::id();
       $target_sale->save();
-      $view = view('complete');
+      $action = '/sales-list';
+      $view = view('complete',compact('action'));
       return $view;
     }
 

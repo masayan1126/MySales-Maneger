@@ -20,7 +20,6 @@
       <div class="modal-footer p-2">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <input type="submit" class="btn btn-primary" value="カートに追加" >
-        <button @click="openHandler($event)" id="customButton">Purchase</button>
       </div>
     </div>
   </div>
@@ -38,34 +37,13 @@ export default {
   data() {
     return {
       csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-      handler: StripeCheckout.configure({
-      key: 'pk_test_51HRChdIH4aiHiVFwmYIEWpP48Gm3U9QSNw8m85SuELfpOdvvf9PqLBQFL29nMZGI1L65cw8ORsbZpFpit339aUlQ00k1tsIt9m',
-      image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
-      locale: 'auto',
-      token: function(token) {
-        // You can access the token ID with `token.id`.
-        // Get the token ID to your server-side code for use.
-      }
-    })
     }
   },
   created() {
   },
   mounted() {
-    // Close Checkout on page navigation:
-    window.addEventListener('popstate', function() {
-      this.handler.close();
-    });
   },
   methods: {
-    openHandler (e) {
-      this.handler.open({
-      name: 'api-test',
-      description: '2 widgets',
-      amount: 2000
-    });
-      e.preventDefault();
-    }
   },
 }
 </script>

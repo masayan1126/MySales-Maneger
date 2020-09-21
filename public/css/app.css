@@ -10989,6 +10989,10 @@ a.text-dark:focus {
   max-width: 600px !important;
 }
 
+.max-width-150 {
+  max-width: 150px !important;
+}
+
 .max-chart-size {
   max-width: 600px !important;
   max-height: 600px !important;

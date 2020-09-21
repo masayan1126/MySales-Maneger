@@ -28,8 +28,13 @@ class Ordercontroller extends Controller
 
     public function shipping(Request $request){
       $target_order = Order::where('order_number', '=' , $request->check)->first();
-      $target_order->shipping = 1;
+      if ($target_order->shipping === 0) {
+        $target_order->shipping = 1;
+      } else if ($target_order->shipping === 1) {
+        $target_order->shipping = 0;
+      }
       $target_order->save();
+      
       // return redirect('order-list')->with('alert', '最低1つのデータを選択してください');
       return redirect('order-list');
       // $view = view('received_order');

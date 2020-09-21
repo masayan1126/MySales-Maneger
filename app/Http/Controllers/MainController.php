@@ -32,8 +32,10 @@ class MainController extends Controller
         $channel = new Channel();
         $channel->sales_channel = $request->salesChannel;
         $channel->channel_url = $request->channel_url;
+        $channel->user_id = Auth::id();
         $channel->save();
-        $view = view('complete');
+        $action = '/maintenance';
+        $view = view('complete',compact('action'));
         return $view;
       }
 
@@ -61,7 +63,8 @@ class MainController extends Controller
         if (!$request->check) {
           return redirect('maintenance')->with('alert', '最低1つのデータを選択してください');
         } else {
-          $view = view('complete');
+          $action = '/maintenance';
+          $view = view('complete',compact('action'));
           for ($i = 0; $i < count($request->check); $i++) {
             $delete_sales = Channel::where('id', '=' , $request->check[$i])
             ->delete();
@@ -76,13 +79,8 @@ class MainController extends Controller
       $target_channel->sales_channel = $request->salesChannel;
       $target_channel->channel_url = $request->channel_url;
       $target_channel->save();
-      $view = view('complete');
-      return $view;
-    }
-
-    // 作成予定(完了画面は全てview('complete')へ遷移させ、vueコンポーネントで動的に文言を表示させる)
-    public function complete(Request $request){
-      $view = view('complete');
+      $action = '/maintenance';
+      $view = view('complete',compact('action'));
       return $view;
     }
 }

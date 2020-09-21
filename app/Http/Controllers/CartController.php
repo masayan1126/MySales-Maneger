@@ -35,7 +35,7 @@ class CartController extends Controller
         $view->cart = $my_cart;
         // dd(count($my_cart));
         if (count($my_cart) === 0) {
-          Session::put('message', 'カートは空です');
+          Session::put('message_cart', 'カートは空です');
           return $view;
         } else {
           return $view;
@@ -66,22 +66,4 @@ class CartController extends Controller
         $view->total_price = $total_price;
         return $view;
       }
-
-      public function orderComplete(Request $request){
-        // $delete_item = Cart::find($id);
-        // dd($request->check);
-        $delete_item = Cart::where('id', '=' , $request->check);
-        $delete_item->delete();
-        // $cart = Cart::get();
-        // $view->cart = $cart;
-        $view = view('complete');
-        return $view;
-        // return redirect()->to('/complete');
-      }
-
-    // 作成予定(完了画面は全てview('complete')へ遷移させ、vueコンポーネントで動的に文言を表示させる)
-    public function complete(Request $request){
-      $view = view('complete');
-      return $view;
-    }
 }

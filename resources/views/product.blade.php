@@ -4,8 +4,8 @@
 product
 @endsection
 @section('content')
-  <product-component :products="{{ $all_products }}"></product-component>
-@endsection
-@section('script')
-  <script src="https://checkout.stripe.com/checkout.js"></script>
+@if (Session::has('message_product'))
+<div class="alert alert-primary max-width-1400 mx-auto">{{ session('message_product') }}</div>
+@endif
+<product-component :products="{{ $all_products }}"></product-component>
 @endsection

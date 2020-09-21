@@ -35,7 +35,7 @@ Route::post('/allocate-maintenance-channel', 'MainController@allocateMaintenance
 Route::post('/channel-add', 'MainController@store');
 Route::get('/channel-input', 'MainController@inputChannel');
 Route::post('/channel-update', 'MainController@updateChannel');
-Route::post('/complete', 'MainController@complete');
+Route::get('/complete', 'MainController@complete');
 
 Route::get('/sales-list', 'SalesController@index');
 Route::get('/sales-input', 'SalesController@inputSale');

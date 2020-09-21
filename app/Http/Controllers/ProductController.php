@@ -8,6 +8,8 @@ use Storage;
 use App\Product;
 use App\Sale;
 use App\Channel;
+use Session;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -15,7 +17,12 @@ class ProductController extends Controller
     $view = view('product');
     $all_product = Product::all();
     $view->all_products = $all_product;
-    return $view;
+    // dd(count($all_product));
+    if (count($all_product) === 0) {
+      Session::put('message_product', '商品がありません。登録しましょう。');
+    } else if (count($all_product) >= 1) {
+      return $view;
+    }
   }
 
   public function showProductList(){
@@ -73,7 +80,8 @@ class ProductController extends Controller
         if (!$request->check) {
           return redirect('maintenance')->with('alert', '最低1つのデータを選択してください');
         } else {
-          $view = view('complete');
+          $action = '/maintenance';
+          $view = view('complete',compact('action'));
           for ($i = 0; $i < count($request->check); $i++) {
             $delete_sales = Product::where('product_id', '=' , $request->check[$i])
             ->delete();
@@ -93,8 +101,10 @@ class ProductController extends Controller
       $product->product_name = $request->product_name;
       $product->price = $request->price;
       $product->stock_quantity = $request->stock_quantity;
+      $product->user_id = Auth::id();
       $product->save();
-      $view = view('complete');
+      $action = '/maintenance';
+      $view = view('complete',compact('action'));
       return $view;
     }
 
