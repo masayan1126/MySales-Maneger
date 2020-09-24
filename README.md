@@ -49,6 +49,9 @@ cp .env.example .env
 ```
 php artisan key:generate
 ```
+```
+php artisan db:seed
+```
 The application can then be accessed at http://127.0.0.1:8000.
 
 # Usage
