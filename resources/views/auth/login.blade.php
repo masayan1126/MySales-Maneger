@@ -60,7 +60,7 @@ login
   const demoLogin = function() {
     const email = document.getElementById('email');
     const password = document.getElementById('password');
-    email.value = 'matsushin@gmail.com'
+    email.value = 'matsushin1126@gmail.com'
     password.value = 'matsushin1126'
   }
 </script>
