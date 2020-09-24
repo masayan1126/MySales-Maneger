@@ -1,4 +1,4 @@
-# EC-MANAGER
+# TAILLER-CASE-SHOP
 【English】
 - This is the EC site of the original iPhone case
 
