@@ -16,11 +16,7 @@ class ProductController extends Controller
     $view = view('product');
     $all_product = Product::all();
     $view->all_products = $all_product;
-    if (count($all_product) === 0) {
-      Session::put('message_product', '商品がありません。登録しましょう。');
-    } else if (count($all_product) >= 1) {
-      return $view;
-    }
+    return $view;
   }
 
   public function showProductList(){
