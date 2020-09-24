@@ -15,7 +15,7 @@ class AddChannelUrlToProductsTable extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
             //
-            $table->string('channel_url')->nullable();
+            $table->string('channel_url');
         });
     }
 

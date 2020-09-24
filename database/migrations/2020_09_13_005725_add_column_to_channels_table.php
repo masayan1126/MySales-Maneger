@@ -15,7 +15,7 @@ class AddColumnToChannelsTable extends Migration
     {
         Schema::table('channels', function (Blueprint $table) {
             //
-            $table->string('channel_url');
+            $table->string('channel_url')->nullable();
         });
     }
 
