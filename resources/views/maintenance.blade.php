@@ -30,8 +30,8 @@ product
           <tbody>
             @foreach($all_products as $product)
             <tr>
-              <td style="width:2%" scope="row"><input name="check[]" type="checkbox" value="{{ $product->product_id }}"></td>
-              <td style="width:5%" scope="row"><img class="w-100" src="{{ $product->path }}" alt=""></td>
+              <td style="width:1%" scope="row"><input name="check[]" type="checkbox" value="{{ $product->product_id }}"></td>
+              <td style="width:1%" scope="row"><img class="w-100" src="{{ $product->path }}" alt=""></td>
               <td style="width:20%" scope="row">{{$product->product_name}}</td>
             </tr>
             @endforeach
