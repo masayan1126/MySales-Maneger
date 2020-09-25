@@ -17,6 +17,7 @@ class UserTableSeeder extends Seeder
               'email' => 'matsushin1126@gmail.com',
               'password' => Hash::make('matsushin1126'),
               'role' => 1,
+              'created_at' => '2020-09-01 10:00:00',
             ],
           ]);
     }
