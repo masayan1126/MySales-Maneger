@@ -54,7 +54,7 @@ export default {
     return {
       items: [],
       productId:'',
-      parPage: 6,
+      parPage: 8,
       currentPage: 1,
     }
   },
