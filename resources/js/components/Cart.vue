@@ -1,10 +1,11 @@
 <template>
+<div class="max-width-1400 mx-auto">
 <form action="/order-confirm" method="POST">
 <input type="hidden" name="_token" :value="csrf">
-<div class="max-width-1400 mx-auto">
     <h3 class="">カート</h3>
-  <div class="mx-auto row justify-content-center justify-content-sm-start max-width-1400">
-    <table class="table table-striped table-dark">
+    <div class="mx-auto row justify-content-center justify-content-sm-start max-width-1400">
+  <div class="table-responsive">
+    <table class="table table-sm table-responsive-sm table-striped table-dark">
 			<thead>
         <tr>
           <th scope="col">商品名</th>
@@ -18,7 +19,7 @@
 
         <tr v-for="item in cart" :key="item.id">
           <td style="width:5%" scope="row">{{ item.product_name }}</td>
-          <td style="width:2%" scope="row"><img class="w-50" :src="item.path" alt=""></td>
+          <td style="width:2%" scope="row"><img class="w-75" :src="item.path" alt=""></td>
           <td style="width:2%" scope="row">{{ item.price }}</td>
           <td style="width:2%" scope="row">{{ item.purchase_number }}</td>
           <td style="width:1%" scope="row">
@@ -31,10 +32,11 @@
         </tr>
       </tbody>
     </table>
+    </div>
   </div>
-</div>
 <button type="submit" class="btn bg-mauve shadow-sm text-white">注文画面へ</button>
 </form>
+</div>
 </template>
 
 <script>
