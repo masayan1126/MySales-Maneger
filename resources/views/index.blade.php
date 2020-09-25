@@ -28,7 +28,7 @@
 <!-- モーダルここまで -->
 
   @if(session()->has('sales_alert'))
-    <div class="alert alert-warning max-width-1400 w-90 mx-auto">{{session('sales_alert')}}</div>
+    <div class="alert alert-warning w-90 mx-auto">{{session('sales_alert')}}</div>
   @endif
 <div class="row mx-auto w-90">
   <h3>売上一覧</h3>
