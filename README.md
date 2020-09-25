@@ -90,6 +90,11 @@ The application can then be accessed at http://127.0.0.1:8000.
   - name:matsushin
   - mail:matsushin@gmail.com
   - password:matsushin1126
+- Demo payment
+  - mail: matsushin@gmail.com
+  - card nuber: 4242 4242 4242
+  - expirationdate: 12/21
+  - password: 123
 
 # Author
 - name
