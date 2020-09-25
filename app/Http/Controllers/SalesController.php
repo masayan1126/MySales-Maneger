@@ -100,7 +100,7 @@ class SalesController extends Controller
     $target_sale = Sale::where('id', '=' , $request->check)->first();
     $target_sale->product_number = $request->productNumber;
     $target_sale->sales_channel = $request->salesChannel;
-    $target_sale->sales_date = "{$request->salesYear}/{$request->salesMonth}/{$request->salesDay}";
+    $target_sale->sales_date = "{$request->salesYear}-{$request->salesMonth}-{$request->salesDay}";
     $target_sale->sales_amount = $request->salesAmount;
     $target_sale->save();
     $action = '/sales-list';
