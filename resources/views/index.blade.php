@@ -27,6 +27,9 @@
 </div>
 <!-- モーダルここまで -->
 
+  @if(session()->has('sales_alert'))
+    <div class="alert alert-warning max-width-1400 w-90 mx-auto">{{session('sales_alert')}}</div>
+  @endif
 <div class="row mx-auto w-90">
   <h3>売上一覧</h3>
   <form action="/allocate" name="salesform" id="sale-operation-form" method="POST" class="form-horizontal w-100">

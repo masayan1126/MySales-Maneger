@@ -58,9 +58,9 @@ class SalesController extends Controller
       $view->membership_year = $yyyy;
     } else if($request->operation === 'update') {
       if (!$request->check) {
-        return redirect('sales-list')->with('alert', '最低1つのデータを選択してください');
+        return redirect('sales-list')->with('sales_alert', '最低1つのデータを選択してください');
       } else if(count($request->check) >= 2 ){
-        return redirect('sales-list')->with('alert', '1度に編集できるのは1つのデータだけです');
+        return redirect('sales-list')->with('sales_alert', '1度に編集できるのは1つのデータだけです');
       } else {
         $view = view('sale_edit');
         $target_sale = Sale::where('id', '=' , $request->check)->first();
@@ -83,7 +83,7 @@ class SalesController extends Controller
       }
     } else if ($request->operation === 'delete') {
       if (!$request->check) {
-        return redirect('sales-list')->with('alert', '最低1つのデータを選択してください');
+        return redirect('sales-list')->with('sales_alert', '最低1つのデータを選択してください');
       } else {
         $action = '/sales-list';
         $view = view('complete',compact('action'));
