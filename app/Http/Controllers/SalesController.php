@@ -67,7 +67,7 @@ class SalesController extends Controller
         $view->product_number = $target_sale->product_number;
         $view->product_id = $target_sale->id;
         $date_string = $target_sale->sales_date;
-        list($yyyy, $mm, $dd) = explode('/', $date_string);
+        list($yyyy, $mm, $dd) = explode('-', $date_string);
         $view->sales_year = $yyyy;
         $view->sales_month = $mm;
         $view->sales_day = $dd;
