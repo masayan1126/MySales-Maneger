@@ -12,7 +12,7 @@ use App\Cart;
 use Illuminate\Support\Facades\Auth;
 use Session;
 
-class Ordercontroller extends Controller
+class OrderController extends Controller
 {
   public function showOrder(Request $request){
     $received_order = Order::all();
