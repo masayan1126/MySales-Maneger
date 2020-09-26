@@ -50,6 +50,7 @@ class ChartController extends Controller
       ->map(function ($day) {
         return $day->sum('sales_amount');
       });
+      $view->target_sales = $target_sales;
     } else {
     //   // 日付単位の集計
       $target_sales =
@@ -62,7 +63,6 @@ class ChartController extends Controller
     }
     $view->salesYear = $request->salesYear;
     $view->salesMonth = $request->salesMonth;
-    $view->target_sales = $target_sales;
     return $view;
   }
 }
